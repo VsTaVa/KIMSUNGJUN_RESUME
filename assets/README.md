@@ -8,6 +8,17 @@
   - 예: `models/sagrada.glb`
   - 추후 배너/포트폴리오 3D 뷰어(three.js)에서 로드
 <img width="1920" height="1080" alt="SAGRADAFAMILIA_김성준" src="https://github.com/user-attachments/assets/0c42d83c-f5ab-48f5-a3a2-13f2288eb4c3" />
+<img width="1920" height="1080" alt="SAGRADAFAMILIA_김성준_10" src="https://github.com/user-attachments/assets/3d84191b-b559-4c56-bba4-fb54d5bf38bc" />
+<img width="1920" height="1080" alt="SAGRADAFAMILIA_김성준_9" src="https://github.com/user-attachments/assets/b3d8e7ba-8fe0-41b1-a67c-fb5af9a849ff" />
+<img width="1920" height="1080" alt="SAGRADAFAMILIA_김성준_8" src="https://github.com/user-attachments/assets/a8721ec4-3d88-4eff-9801-a470a36b0c15" />
+<img width="1920" height="1080" alt="SAGRADAFAMILIA_김성준_7" src="https://github.com/user-attachments/assets/303489c6-ded1-4556-8234-eff9bd531097" />
+<img width="1920" height="1080" alt="SAGRADAFAMILIA_김성준_6" src="https://github.com/user-attachments/assets/da81e4bc-efda-417e-bece-ce6b71c99afa" />
+<img width="1920" height="1080" alt="SAGRADAFAMILIA_김성준_5" src="https://github.com/user-attachments/assets/8d0283dd-d7fa-42d2-a06c-3d4fcf8d952d" />
+<img width="1920" height="1080" alt="SAGRADAFAMILIA_김성준_4" src="https://github.com/user-attachments/assets/c2693c15-99ac-4051-80b3-ea53c1572dbf" />
+<img width="1920" height="1080" alt="SAGRADAFAMILIA_김성준_3" src="https://github.com/user-attachments/assets/d740bb97-9533-4c84-8fe4-decd6edaf495" />
+<img width="1920" height="1080" alt="SAGRADAFAMILIA_김성준_2" src="https://github.com/user-attachments/assets/30e01b0d-1a8f-4d1e-ad96-2e062df082d7" />
+<img width="1920" height="1080" alt="SAGRADAFAMILIA_김성준_1" src="https://github.com/user-attachments/assets/c79a1516-5957-444f-b370-03ab6f83348f" />
+<img width="1920" height="1080" alt="SAGRADAFAMILIA_김성준_00" src="https://github.com/user-attachments/assets/346871e9-c581-483b-8df4-389341f0a539" />
 
 
 ## 텍스트 정보(제목·연도·설명·링크)
