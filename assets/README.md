@@ -1,5 +1,3 @@
-<img width="1920" height="1080" alt="SAGRADAFAMILIA_김성준" src="https://github.com/user-attachments/assets/e8931cf6-2f69-4a25-854e-e6e1f45840a3" /># assets — 이미지 & 3D 자료 넣는 곳
-
 포트폴리오에 들어갈 파일을 여기에 넣고 push 하면 Vercel이 서빙합니다.
 
 ## 폴더 구조
