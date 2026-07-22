@@ -24,7 +24,7 @@
 /* ===== RESET ===== */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size:14px; line-height:1.75; position: relative; }
+body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size:14px; line-height:1.75; position: relative; padding-right: 96px; }
 a { color: inherit; text-decoration: none; }
 
 /* ===== 빈티지 종이 텍스처 / 얼룩 (포스터 톤) ===== */
@@ -42,28 +42,39 @@ body::after {
   mix-blend-mode: multiply;
 }
 
-/* ===== NAV — 오른쪽 세로 고정 ===== */
+/* ===== NAV — 오른쪽 세로 레일 (full-height) ===== */
 nav {
-  position: fixed; top: 50%; right: 1.1rem; transform: translateY(-50%); z-index: 100;
-  display: flex; flex-direction: column; align-items: flex-end; gap: 0.9rem;
-  padding: 1.1rem 1rem;
-  background: rgba(245,237,220,0.72);
-  -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
-  border: 1px solid var(--line); border-right: 3px double var(--accent);
-  border-radius: 2px;
+  position: fixed; top: 0; right: 0; height: 100vh; width: 96px; z-index: 100;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.6rem;
+  padding: 2rem 0;
+  background: rgba(245,237,220,0.82);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  border-left: 3px double var(--accent);
 }
-.nav-name { font-family: var(--serif); font-size: 15px; color: var(--accent); margin-bottom: 0.2rem; }
-.nav-links { display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem; list-style: none; }
-.nav-links a { font-size: 11px; color: var(--ink-muted); letter-spacing: 0.08em; text-transform: uppercase; transition: color .2s; }
-.nav-links a:hover { color: var(--accent); }
+.nav-name {
+  font-family: var(--serif); font-size: 18px; color: var(--accent);
+  writing-mode: vertical-rl; text-orientation: upright; letter-spacing: 0.12em;
+}
+.nav-links { display: flex; flex-direction: column; align-items: center; gap: 1.9rem; list-style: none; }
+.nav-links a {
+  writing-mode: vertical-rl; text-orientation: mixed;
+  font-size: 14px; color: var(--ink-soft); letter-spacing: 0.22em;
+  padding: 2px 0; border-right: 1px solid transparent; transition: color .2s, border-color .2s;
+}
+.nav-links a:hover { color: var(--accent); border-right-color: var(--accent); }
 
 /* ===== BANNER — 추후 3D 모델 뷰어 + 라이팅 시스템 마운트 위치 ===== */
 .banner {
   position: relative;
-  min-height: 460px;
-  background: radial-gradient(circle at 50% 38%, #3a1a20 0%, #241016 62%, #180a0e 100%);
+  min-height: 520px;
+  background: #180a0e;
   border-bottom: 1px solid var(--line);
   overflow: hidden;
+}
+.banner-media {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+  display: block;
 }
 .banner-label {
   position: absolute; top: 1.25rem; left: 1.75rem; z-index: 2;
@@ -279,7 +290,10 @@ section { padding: 3.5rem 0; border-bottom: 1px solid var(--line); }
   border: 1px solid var(--line);
   background: radial-gradient(circle at 50% 40%, #3a1a20 0%, #241016 70%, #180a0e 100%);
   display: flex; align-items: center; justify-content: center;
+  text-decoration: none; cursor: zoom-in;
 }
+.art-frame img { transition: transform .4s ease; }
+.art-card:hover .art-frame img { transform: scale(1.05); }
 .art-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .art-ph { font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; text-align: center; padding: 0 1rem; }
 .art-badge {
@@ -300,17 +314,19 @@ footer {
 }
 
 /* ===== RESPONSIVE ===== */
-/* 좁은 화면: 오른쪽 세로 nav → 상단 가로 nav 로 복귀 */
+/* 좁은 화면: 오른쪽 세로 레일 → 상단 가로 nav 로 복귀 */
 @media (max-width: 1080px) {
+  body { padding-right: 0; }
   nav {
-    position: sticky; top: 0; right: auto; transform: none;
+    position: sticky; top: 0; right: auto; height: auto; width: auto;
     flex-direction: row; justify-content: space-between; align-items: center;
     padding: 0.75rem 1.25rem; gap: 1rem;
-    border: none; border-bottom: 1px solid var(--line); border-radius: 0;
+    border-left: none; border-bottom: 1px solid var(--line);
     background: rgba(245,237,220,0.92);
   }
-  .nav-name { margin-bottom: 0; }
+  .nav-name { writing-mode: horizontal-tb; text-orientation: mixed; font-size: 16px; }
   .nav-links { flex-direction: row; align-items: center; gap: 1.1rem; flex-wrap: wrap; }
+  .nav-links a { writing-mode: horizontal-tb; text-orientation: mixed; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; border-right: none; }
 }
 
 @media (max-width: 680px) {
@@ -341,26 +357,11 @@ footer {
   </ul>
 </nav>
 
-<!-- BANNER — 추후 3D 모델 뷰어 + 라이팅 시스템을 이 자리에 구축 -->
+<!-- BANNER — 대표작(Sagrada Familia). 추후 이 자리에 3D 뷰어 연결 가능 -->
 <div class="banner">
-  <span class="banner-label">3D Showreel</span>
-  <!-- ▼▼ three.js 등 WebGL 렌더러의 canvas 를 이 #banner-stage 안에 append 하세요 ▼▼ -->
-  <div class="banner-stage" id="banner-stage">
-    <!-- placeholder: 실제 3D 뷰어 연결 시 아래 .cube-scene 삭제 -->
-    <div class="cube-scene">
-      <div class="cube">
-        <div class="face f-front"></div>
-        <div class="face f-back"></div>
-        <div class="face f-right"></div>
-        <div class="face f-left"></div>
-        <div class="face f-top"></div>
-        <div class="face f-bottom"></div>
-      </div>
-    </div>
-    <p class="banner-caption">3D 모델링 · 라이팅 시스템</p>
-    <p class="banner-hint">이 공간에 3D 작업물이 표시될 예정입니다</p>
-  </div>
-  <!-- ▲▲ 마운트 지점 끝 ▲▲ -->
+  <img class="banner-media" src="assets/portfolio/sagrada-main.jpg" alt="Sagrada Familia — 3D 환경 (Unreal Engine 5)">
+  <!-- ▼ 추후 실시간 3D 뷰어를 쓰려면 이 #banner-stage(투명 오버레이)에 canvas 를 append 하세요 ▼ -->
+  <div class="banner-stage" id="banner-stage"></div>
 </div>
 
 <!-- HERO -->
@@ -651,44 +652,97 @@ footer {
       <span class="section-number">04</span>
       <h2 class="section-title">Portfolio</h2>
     </div>
-    <p class="portfolio-intro">3D 모델링 · 환경 작업물을 모아 둔 공간입니다. 이미지는 <code>assets/portfolio/</code>, 3D 모델은 <code>assets/models/</code> 에 넣어 연결합니다.</p>
+    <p class="portfolio-intro"><strong>Sagrada Familia</strong> — 가우디의 미완공 건축물을 Unreal Engine 5로 재구성한 3D 환경 작업. 카드를 클릭하면 원본 이미지가 열립니다.</p>
     <div class="gallery">
 
-      <!-- 작품 카드 템플릿:
-           - 이미지: .art-frame 안 <span class="art-ph"> 를 <img src="assets/portfolio/파일명.jpg" alt="제목"> 로 교체
-           - 3D 작업이면 .art-badge 를 "3D" 로 두고, 추후 뷰어 연결
-           - art-title / art-meta 수정 -->
+      <!-- 새 작품 추가: assets/portfolio/ 에 파일 넣고 아래 카드 형식 복사, src/alt/캡션만 교체 -->
 
       <figure class="art-card">
-        <div class="art-frame">
-          <span class="art-badge">3D</span>
-          <span class="art-ph">이미지 자리<br>assets/portfolio/</span>
-        </div>
-        <figcaption>
-          <span class="art-title">Sagrada Familia</span>
-          <span class="art-meta">2024 · 3D Environment</span>
-        </figcaption>
+        <a class="art-frame" href="assets/portfolio/sagrada-01.jpg" target="_blank" rel="noopener">
+          <span class="art-badge">UE5</span>
+          <img src="assets/portfolio/sagrada-01.jpg" alt="Sagrada Familia — View 01" loading="lazy">
+        </a>
+        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 01</span></figcaption>
       </figure>
 
       <figure class="art-card">
-        <div class="art-frame">
-          <span class="art-badge">3D</span>
-          <span class="art-ph">이미지 자리<br>assets/portfolio/</span>
-        </div>
-        <figcaption>
-          <span class="art-title">Iron Maiden</span>
-          <span class="art-meta">2025 · Interior</span>
-        </figcaption>
+        <a class="art-frame" href="assets/portfolio/sagrada-03.jpg" target="_blank" rel="noopener">
+          <span class="art-badge">UE5</span>
+          <img src="assets/portfolio/sagrada-03.jpg" alt="Sagrada Familia — View 03" loading="lazy">
+        </a>
+        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 03</span></figcaption>
       </figure>
 
       <figure class="art-card">
-        <div class="art-frame">
-          <span class="art-ph">이미지 자리<br>assets/portfolio/</span>
-        </div>
-        <figcaption>
-          <span class="art-title">작품 제목</span>
-          <span class="art-meta">연도 · 분류</span>
-        </figcaption>
+        <a class="art-frame" href="assets/portfolio/sagrada-05.jpg" target="_blank" rel="noopener">
+          <span class="art-badge">UE5</span>
+          <img src="assets/portfolio/sagrada-05.jpg" alt="Sagrada Familia — View 05" loading="lazy">
+        </a>
+        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 05</span></figcaption>
+      </figure>
+
+      <figure class="art-card">
+        <a class="art-frame" href="assets/portfolio/sagrada-07.jpg" target="_blank" rel="noopener">
+          <span class="art-badge">UE5</span>
+          <img src="assets/portfolio/sagrada-07.jpg" alt="Sagrada Familia — View 07" loading="lazy">
+        </a>
+        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 07</span></figcaption>
+      </figure>
+
+      <figure class="art-card">
+        <a class="art-frame" href="assets/portfolio/sagrada-02.jpg" target="_blank" rel="noopener">
+          <span class="art-badge">UE5</span>
+          <img src="assets/portfolio/sagrada-02.jpg" alt="Sagrada Familia — View 02" loading="lazy">
+        </a>
+        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 02</span></figcaption>
+      </figure>
+
+      <figure class="art-card">
+        <a class="art-frame" href="assets/portfolio/sagrada-04.jpg" target="_blank" rel="noopener">
+          <span class="art-badge">UE5</span>
+          <img src="assets/portfolio/sagrada-04.jpg" alt="Sagrada Familia — View 04" loading="lazy">
+        </a>
+        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 04</span></figcaption>
+      </figure>
+
+      <figure class="art-card">
+        <a class="art-frame" href="assets/portfolio/sagrada-06.jpg" target="_blank" rel="noopener">
+          <span class="art-badge">UE5</span>
+          <img src="assets/portfolio/sagrada-06.jpg" alt="Sagrada Familia — View 06" loading="lazy">
+        </a>
+        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 06</span></figcaption>
+      </figure>
+
+      <figure class="art-card">
+        <a class="art-frame" href="assets/portfolio/sagrada-08.jpg" target="_blank" rel="noopener">
+          <span class="art-badge">UE5</span>
+          <img src="assets/portfolio/sagrada-08.jpg" alt="Sagrada Familia — View 08" loading="lazy">
+        </a>
+        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 08</span></figcaption>
+      </figure>
+
+      <figure class="art-card">
+        <a class="art-frame" href="assets/portfolio/sagrada-09.jpg" target="_blank" rel="noopener">
+          <span class="art-badge">UE5</span>
+          <img src="assets/portfolio/sagrada-09.jpg" alt="Sagrada Familia — View 09" loading="lazy">
+        </a>
+        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 09</span></figcaption>
+      </figure>
+
+      <figure class="art-card">
+        <a class="art-frame" href="assets/portfolio/sagrada-10.jpg" target="_blank" rel="noopener">
+          <span class="art-badge">UE5</span>
+          <img src="assets/portfolio/sagrada-10.jpg" alt="Sagrada Familia — View 10" loading="lazy">
+        </a>
+        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 10</span></figcaption>
+      </figure>
+
+      <figure class="art-card">
+        <a class="art-frame" href="assets/portfolio/sagrada-00.jpg" target="_blank" rel="noopener">
+          <span class="art-badge">UE5</span>
+          <img src="assets/portfolio/sagrada-00.jpg" alt="Sagrada Familia — Detail" loading="lazy">
+        </a>
+        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · Detail</span></figcaption>
       </figure>
 
     </div>
