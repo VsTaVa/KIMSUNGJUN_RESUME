@@ -120,7 +120,7 @@ nav {
 
 /* ===== HERO ===== */
 .hero {
-  display: grid; grid-template-columns: 200px 1fr;
+  display: grid; grid-template-columns: 260px 1fr;
   min-height: 360px;
   border-bottom: 1px solid var(--line);
 }
@@ -130,15 +130,22 @@ nav {
   align-items: center; justify-content: center;
   padding: 3rem 1.5rem;
 }
-.avatar-circle {
-  width: 90px; height: 90px; border-radius: 50%;
-  background: rgba(255,255,255,0.15);
-  border: 1.5px solid rgba(255,255,255,0.35);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--serif); font-size: 22px; color: rgba(255,255,255,0.9);
-  margin-bottom: 1.25rem;
+/* 증명사진용 액자 프레임: 크림색 매트가 사진 배경색과 와인 패널을 분리해준다 */
+.avatar-frame {
+  width: 158px; padding: 7px;
+  background: var(--paper);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.32), 0 1px 0 rgba(255,255,255,0.25);
+  margin-bottom: 1.5rem;
 }
-.hero-birth { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.04em; }
+.avatar-frame img {
+  display: block; width: 100%; aspect-ratio: 3 / 4;
+  object-fit: cover; object-position: center 12%;
+  filter: saturate(0.9) contrast(1.03);
+}
+.hero-birth {
+  font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.08em;
+  padding-top: 0.85rem; border-top: 1px solid rgba(255,255,255,0.22);
+}
 .hero-right {
   padding: 4rem 3.5rem;
   display: flex; flex-direction: column; justify-content: center;
@@ -375,7 +382,9 @@ footer {
 @media (max-width: 680px) {
   .banner { min-height: 320px; }
   .hero { grid-template-columns: 1fr; }
-  .hero-left { padding: 2.5rem; flex-direction: row; gap: 1rem; justify-content: flex-start; }
+  .hero-left { padding: 2.5rem; flex-direction: row; gap: 1.25rem; justify-content: flex-start; align-items: center; }
+  .avatar-frame { width: 104px; margin-bottom: 0; }
+  .hero-birth { padding-top: 0; border-top: 0; }
   .hero-right { padding: 2rem 1.5rem; }
   .hero-name { font-size: 32px; }
   .two-col { grid-template-columns: 1fr; gap: 2rem; }
@@ -428,7 +437,9 @@ footer {
 <!-- HERO -->
 <div class="hero" id="about">
   <div class="hero-left">
-    <div class="avatar-circle">KSJ</div><!-- 이니셜 수정 또는 img 태그로 교체 -->
+    <div class="avatar-frame">
+      <img src="assets/profile.jpg" alt="김성준 프로필 사진"><!-- 사진 교체 -->
+    </div>
     <span class="hero-birth">B. 2000.10.24</span><!-- 생년월일 수정 -->
   </div>
   <div class="hero-right">
