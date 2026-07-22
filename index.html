@@ -718,6 +718,15 @@ footer {
         <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · 이미지 12장</span></figcaption>
       </figure>
 
+      <figure class="art-card" onclick="openProject('iron')" tabindex="0" role="button" aria-label="Iron Maiden 상세 보기">
+        <div class="art-frame">
+          <span class="art-badge">UE5</span>
+          <img src="assets/portfolio/iron-main.jpg" alt="Iron Maiden" loading="lazy">
+          <span class="art-open">클릭하여 작품 보기 →</span>
+        </div>
+        <figcaption><span class="art-title">Iron Maiden</span><span class="art-meta">2025 · UE5 · 이미지 12장</span></figcaption>
+      </figure>
+
     </div>
   </div>
 </section>
@@ -933,7 +942,15 @@ const projects = {
     desc: "가우디의 미완공 건축물을 자료 조사와 창작 해석을 바탕으로 Unreal Engine 5에서 재구성한 환경 디자인 프로젝트입니다. 복잡한 건축 구조를 프랍 단위로 분리 제작해 게임 환경에 최적화했고, 현실 건축의 재질 표현과 미적 과장을 균형 있게 조합해 건축적 신뢰성과 예술적 분위기를 동시에 담았습니다. 라이팅으로 시간대별 분위기를 연출하고 스테인드글라스의 색 투과를 표현했습니다.",
     link: "https://www.artstation.com/artwork/XJGgkY",
     linkText: "ArtStation에서 보기",
-    images: ["sagrada-main","sagrada-01","sagrada-02","sagrada-03","sagrada-04","sagrada-05","sagrada-06","sagrada-07","sagrada-08","sagrada-09","sagrada-10","sagrada-00"]
+    images: ["sagrada-main","sagrada-00","sagrada-10","sagrada-09","sagrada-08","sagrada-07","sagrada-06","sagrada-05","sagrada-04","sagrada-03","sagrada-02","sagrada-01"]
+  },
+  iron: {
+    title: "Iron Maiden",
+    meta: "2024.12 – 2025.03 · Unreal Engine 5 · Middle Age Prison Concept",
+    desc: "중세 감옥을 콘셉트로 한 실내 배경 작업입니다. 라이팅의 분위기 조성과 명암 대비에 집중했고, 머티리얼·아틀라스 작업으로 적은 텍스처 리소스에서 다양한 오브젝트를 구현했습니다. Brush 스컬핑·데칼·폴리지를 활용해 감옥의 노후된 질감과 음산한 분위기를 표현했으며, 라이팅 전/후 비교, 와이어프레임, 프랍 등 제작 과정도 함께 담았습니다.",
+    link: "",
+    linkText: "",
+    images: ["iron-main","iron-00","iron-wire","iron-prop","iron-before-03","iron-before-02","iron-before-01","iron-05","iron-04","iron-03","iron-02","iron-01"]
   }
 };
 function openProject(id) {
