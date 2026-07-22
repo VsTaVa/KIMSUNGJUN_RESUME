@@ -1,4 +1,4 @@
-포트폴리오에 들어갈 파일을 여기에 넣고 push 하면 Vercel이 서빙합니다.
+<img width="1920" height="1080" alt="MOL_OrangeRoom_포트폴리오_RROP" src="https://github.com/user-attachments/assets/b4c2bf6f-142c-4ca6-9841-9822c38fac8f" /><img width="1920" height="1080" alt="MOL_BlueRoom_김성준_1" src="https://github.com/user-attachments/assets/0e272d8b-8ac5-438e-b5ea-58181b0a5907" /><img width="1920" height="1080" alt="MOL_BlueRoom_김성준_0" src="https://github.com/user-attachments/assets/d3919361-1079-4b6c-bf9e-47d308a99ae3" />포트폴리오에 들어갈 파일을 여기에 넣고 push 하면 Vercel이 서빙합니다.
 
 ## 폴더 구조
 - `portfolio/` — 작품 이미지 (`.jpg` / `.png` / `.webp`)
@@ -38,6 +38,22 @@
 <img width="1920" height="1080" alt="IRON_MAIDEN_김성준_2" src="https://github.com/user-attachments/assets/efffe690-c19f-408b-b80e-7f50a0e74f58" />
 <img width="1920" height="1080" alt="IRON_MAIDEN_김성준_1" src="https://github.com/user-attachments/assets/6d0cc4da-e59a-4276-98b8-69ed13fe8d9f" />
 
+<MOL>
+<img width="1920" height="1080" alt="MOL_BlueRoom_김성준" src="https://github.com/user-attachments/assets/b6dc12b4-b539-489f-bc3d-dc17f23a8174" />
+<img width="1920" height="1080" alt="MOL_BlueRoom_김성준_" src="https://github.com/user-attachments/assets/b904a14d-577a-494e-a431-e5f9e852ffc3" />
+<img width="1920" height="1080" alt="MOL_BlueRoom_김성준_1" src="https://github.com/user-attachments/assets/294ce936-6605-448c-8e5a-9eb26462fcc6" />
+<img width="1920" height="1080" alt="MOL_BlueRoom_김성준_2" src="https://github.com/user-attachments/assets/a1d692de-ee6b-4929-87be-912d7b38c2ad" />
+<img width="1920" height="1080" alt="MOL_BlueRoom_김성준_3" src="https://github.com/user-attachments/assets/6432bd73-b8d5-4956-8667-58c4418e1d2e" />!
+<img width="1920" height="1080" alt="MOL_BlueRoom_김성준_4" src="https://github.com/user-attachments/assets/84ff0c70-da18-4973-9969-9c3302aef629" />
+<img width="1920" height="1080" alt="MOL_BlueRoom_포트폴리오_WIRE" src="https://github.com/user-attachments/assets/8be47b72-2e88-47ba-a732-83752d8c2ac2" />
+<img width="1920" height="1080" alt="MOL_BlueRoom_포트폴리오_RROP" src="https://github.com/user-attachments/assets/959bee42-6445-44ad-8140-e74f6f2cdfcc" />
+<img width="1920" height="1080" alt="MOL_BlueRoom_포트폴리오_WIRE" src="https://github.com/user-attachments/assets/3c22ac48-2281-4379-9209-f7c6ddfd14e9" />
+<img width="1920" height="1080" alt="MOL_BlueRoom_포트폴리오_RROP" src="https://github.com/user-attachments/assets/37ffeaca-dff7-4108-8208-f2401b2ad539" />
+<img width="1920" height="1080" alt="MOL_OrangeRoom_김성준_1" src="https://github.com/user-attachments/assets/103ea9b8-ec63-4d8b-a1d0-eaf22b147bf8" />
+<img width="1920" height="1080" alt="MOL_OrangeRoom_김성준_2" src="https://github.com/user-attachments/assets/4aa5088c-9023-4bec-a134-ebc64fdda164" />
+<img width="1920" height="1080" alt="MOL_OrangeRoom_김성준_3" src="https://github.com/user-attachments/assets/4f1f6bda-46b3-49ea-969c-9e8fba41097b" />
+<img width="1920" height="1080" alt="MOL_OrangeRoom_포트폴리오_RROP" src="https://github.com/user-attachments/assets/3d56bda1-0101-465c-afc0-8d207e051943" />
+<img width="1920" height="1080" alt="MOL_OrangeRoom_포트폴리오_WIRE" src="https://github.com/user-attachments/assets/227ddb40-00b1-4245-b569-fbb73f6983a1" />
 
 ## 텍스트 정보(제목·연도·설명·링크)
 - 노션 `[구직] → [이력서]`의 DB(프로젝트들 / 경험들 / 스킬)에서 관리하면 됩니다.
