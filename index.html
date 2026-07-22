@@ -24,7 +24,7 @@
 /* ===== RESET ===== */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size:14px; line-height:1.75; position: relative; padding-right: 96px; }
+body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size:14px; line-height:1.75; position: relative; padding-right: 148px; }
 a { color: inherit; text-decoration: none; }
 
 /* ===== 빈티지 종이 텍스처 / 얼룩 (포스터 톤) ===== */
@@ -42,39 +42,34 @@ body::after {
   mix-blend-mode: multiply;
 }
 
-/* ===== NAV — 오른쪽 세로 레일 (full-height) ===== */
+/* ===== NAV — 오른쪽 세로 레일 (full-height, 가로 텍스트) ===== */
 nav {
-  position: fixed; top: 0; right: 0; height: 100vh; width: 96px; z-index: 100;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.6rem;
-  padding: 2rem 0;
-  background: rgba(245,237,220,0.82);
+  position: fixed; top: 0; right: 0; height: 100vh; width: 148px; z-index: 100;
+  display: flex; flex-direction: column; align-items: center; gap: 2.2rem;
+  padding: 2.4rem 1rem;
+  background: rgba(245,237,220,0.85);
   -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
   border-left: 3px double var(--accent);
 }
+.nav-logo { width: 100%; max-width: 108px; height: auto; display: block; }
 .nav-name {
-  font-family: var(--serif); font-size: 18px; color: var(--accent);
-  writing-mode: vertical-rl; text-orientation: upright; letter-spacing: 0.12em;
+  font-family: var(--serif); font-size: 16px; color: var(--accent);
+  letter-spacing: 0.14em; text-align: center;
 }
-.nav-links { display: flex; flex-direction: column; align-items: center; gap: 1.9rem; list-style: none; }
+.nav-links { display: flex; flex-direction: column; align-items: center; gap: 1.3rem; list-style: none; margin-top: 0.4rem; }
 .nav-links a {
-  writing-mode: vertical-rl; text-orientation: mixed;
-  font-size: 14px; color: var(--ink-soft); letter-spacing: 0.22em;
-  padding: 2px 0; border-right: 1px solid transparent; transition: color .2s, border-color .2s;
+  font-size: 13px; color: var(--ink-soft); letter-spacing: 0.12em; text-transform: uppercase;
+  padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s;
 }
-.nav-links a:hover { color: var(--accent); border-right-color: var(--accent); }
+.nav-links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
 /* ===== BANNER — 추후 3D 모델 뷰어 + 라이팅 시스템 마운트 위치 ===== */
 .banner {
   position: relative;
-  min-height: 520px;
-  background: #180a0e;
+  min-height: 460px;
+  background: radial-gradient(circle at 50% 38%, #3a1a20 0%, #241016 62%, #180a0e 100%);
   border-bottom: 1px solid var(--line);
   overflow: hidden;
-}
-.banner-media {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%; object-fit: cover; object-position: center;
-  display: block;
 }
 .banner-label {
   position: absolute; top: 1.25rem; left: 1.75rem; z-index: 2;
@@ -278,23 +273,29 @@ section { padding: 3.5rem 0; border-bottom: 1px solid var(--line); }
 
 /* ===== PORTFOLIO GALLERY ===== */
 .portfolio-intro { font-size: 13px; color: var(--ink-soft); margin-bottom: 1.75rem; max-width: 640px; line-height: 1.8; }
-.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1.25rem; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
 .art-card {
   background: var(--paper-warm); border: 1px solid var(--line);
-  padding: 0.55rem; border-radius: 2px;
+  padding: 0.55rem; border-radius: 2px; cursor: pointer;
   transition: transform .2s, border-color .2s, box-shadow .2s;
 }
 .art-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 6px 18px rgba(60,25,30,0.14); }
+.art-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .art-frame {
-  position: relative; aspect-ratio: 1 / 1; overflow: hidden;
+  position: relative; aspect-ratio: 16 / 9; overflow: hidden;
   border: 1px solid var(--line);
   background: radial-gradient(circle at 50% 40%, #3a1a20 0%, #241016 70%, #180a0e 100%);
   display: flex; align-items: center; justify-content: center;
-  text-decoration: none; cursor: zoom-in;
 }
-.art-frame img { transition: transform .4s ease; }
+.art-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
 .art-card:hover .art-frame img { transform: scale(1.05); }
-.art-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.art-open {
+  position: absolute; left: 0; right: 0; bottom: 0; text-align: center; padding: 0.5rem;
+  font-size: 11px; letter-spacing: 0.06em; color: #fff;
+  background: linear-gradient(transparent, rgba(24,10,14,0.85));
+  opacity: 0; transition: opacity .25s;
+}
+.art-card:hover .art-open, .art-card:focus-visible .art-open { opacity: 1; }
 .art-ph { font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; text-align: center; padding: 0 1rem; }
 .art-badge {
   position: absolute; top: 8px; left: 8px;
@@ -304,6 +305,39 @@ section { padding: 3.5rem 0; border-bottom: 1px solid var(--line); }
 .art-card figcaption { display: flex; flex-direction: column; gap: 3px; padding: 0.65rem 0.35rem 0.25rem; }
 .art-title { font-family: var(--serif); font-size: 14px; color: var(--ink); }
 .art-meta { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); }
+
+/* ===== PROJECT MODAL (상세 페이지) ===== */
+.proj-modal {
+  display: none; position: fixed; inset: 0; z-index: 200;
+  background: rgba(24,10,14,0.62);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  padding: 4vh 4vw; align-items: flex-start; justify-content: center;
+}
+.proj-modal.open { display: flex; }
+.proj-page {
+  position: relative; width: 100%; max-width: 860px; max-height: 92vh; overflow-y: auto;
+  background: var(--paper); border: 1px solid var(--line); border-top: 4px solid var(--accent);
+  border-radius: 3px; padding: 2.75rem 2.5rem 3rem;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+}
+.proj-close {
+  position: absolute; top: 1rem; right: 1rem; width: 34px; height: 34px;
+  border: 1px solid var(--line); background: var(--paper-warm); border-radius: 50%;
+  cursor: pointer; font-size: 13px; color: var(--ink-soft);
+  transition: color .2s, border-color .2s;
+}
+.proj-close:hover { color: var(--accent); border-color: var(--accent); }
+.proj-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); margin-bottom: 0.5rem; }
+.proj-title { font-family: var(--serif); font-size: 30px; color: var(--accent); margin-bottom: 1rem; letter-spacing: 0.01em; }
+.proj-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.9; margin-bottom: 1.25rem; }
+.proj-link {
+  display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: var(--accent);
+  border-bottom: 1px solid var(--accent-pale); padding-bottom: 1px; margin-bottom: 2rem;
+  transition: border-color .2s;
+}
+.proj-link:hover { border-color: var(--accent); }
+.proj-images { display: flex; flex-direction: column; gap: 1rem; }
+.proj-images img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 2px; }
 
 /* ===== FOOTER ===== */
 footer {
@@ -324,9 +358,10 @@ footer {
     border-left: none; border-bottom: 1px solid var(--line);
     background: rgba(245,237,220,0.92);
   }
-  .nav-name { writing-mode: horizontal-tb; text-orientation: mixed; font-size: 16px; }
-  .nav-links { flex-direction: row; align-items: center; gap: 1.1rem; flex-wrap: wrap; }
-  .nav-links a { writing-mode: horizontal-tb; text-orientation: mixed; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; border-right: none; }
+  .nav-logo { max-width: 84px; }
+  .nav-name { font-size: 15px; }
+  .nav-links { flex-direction: row; align-items: center; gap: 1.1rem; flex-wrap: wrap; margin-top: 0; }
+  .nav-links a { font-size: 12px; letter-spacing: 0.08em; }
 }
 
 @media (max-width: 680px) {
@@ -346,6 +381,8 @@ footer {
 
 <!-- NAV -->
 <nav>
+  <!-- 로고: assets/vstava-logo.svg 파일만 넣으면 여기에 표시됨 -->
+  <a href="#about" aria-label="홈"><img class="nav-logo" src="assets/vstava-logo.svg" alt="VS TA VA"></a>
   <span class="nav-name">김성준</span><!-- 이름 수정 -->
   <ul class="nav-links">
     <li><a href="#about">소개</a></li>
@@ -357,11 +394,25 @@ footer {
   </ul>
 </nav>
 
-<!-- BANNER — 대표작(Sagrada Familia). 추후 이 자리에 3D 뷰어 연결 가능 -->
+<!-- BANNER — 3D 모델 뷰어 자리 (three.js 등 WebGL 렌더러를 #banner-stage 에 마운트) -->
 <div class="banner">
-  <img class="banner-media" src="assets/portfolio/sagrada-main.jpg" alt="Sagrada Familia — 3D 환경 (Unreal Engine 5)">
-  <!-- ▼ 추후 실시간 3D 뷰어를 쓰려면 이 #banner-stage(투명 오버레이)에 canvas 를 append 하세요 ▼ -->
-  <div class="banner-stage" id="banner-stage"></div>
+  <span class="banner-label">3D Showreel</span>
+  <!-- ▼▼ 실제 3D 뷰어의 canvas 를 이 #banner-stage 안에 append 하세요 ▼▼ -->
+  <div class="banner-stage" id="banner-stage">
+    <!-- placeholder: 3D 뷰어 연결 시 아래 .cube-scene 삭제 -->
+    <div class="cube-scene">
+      <div class="cube">
+        <div class="face f-front"></div>
+        <div class="face f-back"></div>
+        <div class="face f-right"></div>
+        <div class="face f-left"></div>
+        <div class="face f-top"></div>
+        <div class="face f-bottom"></div>
+      </div>
+    </div>
+    <p class="banner-caption">3D 모델 뷰어 예정</p>
+    <p class="banner-hint">이 자리에 3D 모델링 작업물이 표시됩니다</p>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -652,102 +703,36 @@ footer {
       <span class="section-number">04</span>
       <h2 class="section-title">Portfolio</h2>
     </div>
-    <p class="portfolio-intro"><strong>Sagrada Familia</strong> — 가우디의 미완공 건축물을 Unreal Engine 5로 재구성한 3D 환경 작업. 카드를 클릭하면 원본 이미지가 열립니다.</p>
+    <p class="portfolio-intro">3D 모델링 · 환경 작업물. 카드를 클릭하면 상세 페이지(여러 이미지 + 설명)가 중앙에 열립니다.</p>
     <div class="gallery">
 
-      <!-- 새 작품 추가: assets/portfolio/ 에 파일 넣고 아래 카드 형식 복사, src/alt/캡션만 교체 -->
+      <!-- 프로젝트 카드: 클릭 → openProject(id) 로 상세 모달. 데이터는 하단 <script>의 projects 객체에서 관리.
+           새 프로젝트 추가: projects 에 항목 추가 후 아래 카드 복사(onclick id/img/캡션 교체) -->
 
-      <figure class="art-card">
-        <a class="art-frame" href="assets/portfolio/sagrada-01.jpg" target="_blank" rel="noopener">
+      <figure class="art-card" onclick="openProject('sagrada')" tabindex="0" role="button" aria-label="Sagrada Familia 상세 보기">
+        <div class="art-frame">
           <span class="art-badge">UE5</span>
-          <img src="assets/portfolio/sagrada-01.jpg" alt="Sagrada Familia — View 01" loading="lazy">
-        </a>
-        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 01</span></figcaption>
-      </figure>
-
-      <figure class="art-card">
-        <a class="art-frame" href="assets/portfolio/sagrada-03.jpg" target="_blank" rel="noopener">
-          <span class="art-badge">UE5</span>
-          <img src="assets/portfolio/sagrada-03.jpg" alt="Sagrada Familia — View 03" loading="lazy">
-        </a>
-        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 03</span></figcaption>
-      </figure>
-
-      <figure class="art-card">
-        <a class="art-frame" href="assets/portfolio/sagrada-05.jpg" target="_blank" rel="noopener">
-          <span class="art-badge">UE5</span>
-          <img src="assets/portfolio/sagrada-05.jpg" alt="Sagrada Familia — View 05" loading="lazy">
-        </a>
-        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 05</span></figcaption>
-      </figure>
-
-      <figure class="art-card">
-        <a class="art-frame" href="assets/portfolio/sagrada-07.jpg" target="_blank" rel="noopener">
-          <span class="art-badge">UE5</span>
-          <img src="assets/portfolio/sagrada-07.jpg" alt="Sagrada Familia — View 07" loading="lazy">
-        </a>
-        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 07</span></figcaption>
-      </figure>
-
-      <figure class="art-card">
-        <a class="art-frame" href="assets/portfolio/sagrada-02.jpg" target="_blank" rel="noopener">
-          <span class="art-badge">UE5</span>
-          <img src="assets/portfolio/sagrada-02.jpg" alt="Sagrada Familia — View 02" loading="lazy">
-        </a>
-        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 02</span></figcaption>
-      </figure>
-
-      <figure class="art-card">
-        <a class="art-frame" href="assets/portfolio/sagrada-04.jpg" target="_blank" rel="noopener">
-          <span class="art-badge">UE5</span>
-          <img src="assets/portfolio/sagrada-04.jpg" alt="Sagrada Familia — View 04" loading="lazy">
-        </a>
-        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 04</span></figcaption>
-      </figure>
-
-      <figure class="art-card">
-        <a class="art-frame" href="assets/portfolio/sagrada-06.jpg" target="_blank" rel="noopener">
-          <span class="art-badge">UE5</span>
-          <img src="assets/portfolio/sagrada-06.jpg" alt="Sagrada Familia — View 06" loading="lazy">
-        </a>
-        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 06</span></figcaption>
-      </figure>
-
-      <figure class="art-card">
-        <a class="art-frame" href="assets/portfolio/sagrada-08.jpg" target="_blank" rel="noopener">
-          <span class="art-badge">UE5</span>
-          <img src="assets/portfolio/sagrada-08.jpg" alt="Sagrada Familia — View 08" loading="lazy">
-        </a>
-        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 08</span></figcaption>
-      </figure>
-
-      <figure class="art-card">
-        <a class="art-frame" href="assets/portfolio/sagrada-09.jpg" target="_blank" rel="noopener">
-          <span class="art-badge">UE5</span>
-          <img src="assets/portfolio/sagrada-09.jpg" alt="Sagrada Familia — View 09" loading="lazy">
-        </a>
-        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 09</span></figcaption>
-      </figure>
-
-      <figure class="art-card">
-        <a class="art-frame" href="assets/portfolio/sagrada-10.jpg" target="_blank" rel="noopener">
-          <span class="art-badge">UE5</span>
-          <img src="assets/portfolio/sagrada-10.jpg" alt="Sagrada Familia — View 10" loading="lazy">
-        </a>
-        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · View 10</span></figcaption>
-      </figure>
-
-      <figure class="art-card">
-        <a class="art-frame" href="assets/portfolio/sagrada-00.jpg" target="_blank" rel="noopener">
-          <span class="art-badge">UE5</span>
-          <img src="assets/portfolio/sagrada-00.jpg" alt="Sagrada Familia — Detail" loading="lazy">
-        </a>
-        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · Detail</span></figcaption>
+          <img src="assets/portfolio/sagrada-main.jpg" alt="Sagrada Familia" loading="lazy">
+          <span class="art-open">클릭하여 작품 보기 →</span>
+        </div>
+        <figcaption><span class="art-title">Sagrada Familia</span><span class="art-meta">2024 · UE5 · 이미지 12장</span></figcaption>
       </figure>
 
     </div>
   </div>
 </section>
+
+<!-- PROJECT MODAL — 노션 페이지처럼 중앙에 상세 표시 -->
+<div class="proj-modal" id="proj-modal" onclick="if(event.target===this)closeProject()">
+  <article class="proj-page">
+    <button class="proj-close" onclick="closeProject()" aria-label="닫기">✕</button>
+    <p class="proj-eyebrow" id="pm-meta"></p>
+    <h3 class="proj-title" id="pm-title"></h3>
+    <p class="proj-desc" id="pm-desc"></p>
+    <a class="proj-link" id="pm-link" target="_blank" rel="noopener"></a>
+    <div class="proj-images" id="pm-images"></div>
+  </article>
+</div>
 
 <!-- EXPERIENCE -->
 <section id="experience">
@@ -938,6 +923,47 @@ function toggleIntro(id) {
   const el = document.getElementById(id);
   el.classList.toggle('open');
 }
+
+/* ===== 프로젝트 상세 모달 ===== */
+/* 새 프로젝트 추가: 여기에 항목 추가 (images 는 assets/portfolio/ 의 파일명, 확장자 제외) */
+const projects = {
+  sagrada: {
+    title: "Sagrada Familia",
+    meta: "2024.08 – 2024.11 · Unreal Engine 5 · 3D Environment",
+    desc: "가우디의 미완공 건축물을 자료 조사와 창작 해석을 바탕으로 Unreal Engine 5에서 재구성한 환경 디자인 프로젝트입니다. 복잡한 건축 구조를 프랍 단위로 분리 제작해 게임 환경에 최적화했고, 현실 건축의 재질 표현과 미적 과장을 균형 있게 조합해 건축적 신뢰성과 예술적 분위기를 동시에 담았습니다. 라이팅으로 시간대별 분위기를 연출하고 스테인드글라스의 색 투과를 표현했습니다.",
+    link: "https://www.artstation.com/artwork/XJGgkY",
+    linkText: "ArtStation에서 보기",
+    images: ["sagrada-main","sagrada-01","sagrada-02","sagrada-03","sagrada-04","sagrada-05","sagrada-06","sagrada-07","sagrada-08","sagrada-09","sagrada-10","sagrada-00"]
+  }
+};
+function openProject(id) {
+  const p = projects[id];
+  if (!p) return;
+  document.getElementById('pm-title').textContent = p.title;
+  document.getElementById('pm-meta').textContent = p.meta;
+  document.getElementById('pm-desc').textContent = p.desc;
+  const link = document.getElementById('pm-link');
+  if (p.link) { link.href = p.link; link.textContent = (p.linkText || '링크') + ' ↗'; link.style.display = 'inline-flex'; }
+  else { link.style.display = 'none'; }
+  document.getElementById('pm-images').innerHTML =
+    p.images.map(n => '<img src="assets/portfolio/' + n + '.jpg" alt="' + p.title + '" loading="lazy">').join('');
+  const m = document.getElementById('proj-modal');
+  m.classList.add('open');
+  m.scrollTop = 0;
+  document.querySelector('#proj-modal .proj-page').scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+function closeProject() {
+  document.getElementById('proj-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeProject(); });
+/* 카드 키보드 접근성: Enter/Space 로도 열기 */
+document.querySelectorAll('.art-card[role="button"]').forEach(card => {
+  card.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+  });
+});
 </script>
 </body>
 </html>
