@@ -45,23 +45,28 @@ body::after {
 /* ===== NAV — 오른쪽 세로 레일 (full-height, 가로 텍스트) ===== */
 nav {
   position: fixed; top: 0; right: 0; height: 100vh; width: 148px; z-index: 100;
-  display: flex; flex-direction: column; align-items: center; gap: 2.2rem;
+  display: flex; flex-direction: column; align-items: center; gap: 1.2rem;
   padding: 2.4rem 1rem;
   background: rgba(245,237,220,0.85);
   -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
   border-left: 3px double var(--accent);
 }
-.nav-logo { width: 100%; max-width: 108px; height: auto; display: block; }
+.nav-logo-link { width: 100%; display: block; }
+.nav-logo { width: 100%; max-width: 108px; height: auto; display: block; margin: 0 auto; }
+/* 레일 구분선 — 스킬 섹션 헤더와 동일한 빨간 2줄(double) */
+.rail-divider { width: 100%; height: 0; border: 0; border-top: 3px double var(--accent); margin: 0; }
 .nav-name {
   font-family: var(--serif); font-size: 16px; color: var(--accent);
   letter-spacing: 0.14em; text-align: center;
 }
-.nav-links { display: flex; flex-direction: column; align-items: center; gap: 1.3rem; list-style: none; margin-top: 0.4rem; }
+.nav-links { width: 100%; display: flex; flex-direction: column; align-items: stretch; gap: 0; list-style: none; margin: 0; }
+.nav-links li:not(:last-child) { border-bottom: 3px double var(--accent); }
 .nav-links a {
+  display: block; text-align: center; padding: 0.85rem 0;
   font-size: 13px; color: var(--ink-soft); letter-spacing: 0.12em; text-transform: uppercase;
-  padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s;
+  transition: color .2s, background .2s;
 }
-.nav-links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.nav-links a:hover { color: var(--accent); background: rgba(114,47,55,0.06); }
 
 /* ===== BANNER — 추후 3D 모델 뷰어 + 라이팅 시스템 마운트 위치 ===== */
 .banner {
@@ -358,10 +363,13 @@ footer {
     border-left: none; border-bottom: 1px solid var(--line);
     background: rgba(245,237,220,0.92);
   }
+  .nav-logo-link { width: auto; }
   .nav-logo { max-width: 84px; }
   .nav-name { font-size: 15px; }
-  .nav-links { flex-direction: row; align-items: center; gap: 1.1rem; flex-wrap: wrap; margin-top: 0; }
-  .nav-links a { font-size: 12px; letter-spacing: 0.08em; }
+  .rail-divider { display: none; }
+  .nav-links { width: auto; flex-direction: row; align-items: center; gap: 1.1rem; flex-wrap: wrap; margin: 0; }
+  .nav-links li:not(:last-child) { border-bottom: none; }
+  .nav-links a { display: inline; padding: 0; font-size: 12px; letter-spacing: 0.08em; }
 }
 
 @media (max-width: 680px) {
@@ -382,8 +390,10 @@ footer {
 <!-- NAV -->
 <nav>
   <!-- 로고: assets/vstava-logo.svg 파일만 넣으면 여기에 표시됨 -->
-  <a href="#about" aria-label="홈"><img class="nav-logo" src="assets/vstava-logo.png" alt="VS TA VA"></a>
+  <a href="#about" class="nav-logo-link" aria-label="홈"><img class="nav-logo" src="assets/vstava-logo.png" alt="VS TA VA"></a>
+  <hr class="rail-divider">
   <span class="nav-name">김성준</span><!-- 이름 수정 -->
+  <hr class="rail-divider">
   <ul class="nav-links">
     <li><a href="#about">소개</a></li>
     <li><a href="#skills">스킬</a></li>
