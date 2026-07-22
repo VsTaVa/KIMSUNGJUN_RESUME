@@ -24,8 +24,23 @@
 /* ===== RESET ===== */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size:14px; line-height:1.75; }
+body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size:14px; line-height:1.75; position: relative; }
 a { color: inherit; text-decoration: none; }
+
+/* ===== 빈티지 종이 텍스처 / 얼룩 (포스터 톤) ===== */
+body::before {
+  content: ''; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 260px 260px;
+  opacity: 0.32; mix-blend-mode: multiply;
+}
+body::after {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(120% 80% at 50% 0%, transparent 55%, rgba(60,30,35,0.10) 100%),
+    radial-gradient(110% 90% at 20% 100%, rgba(74,45,50,0.08), transparent 60%);
+  mix-blend-mode: multiply;
+}
 
 /* ===== NAV ===== */
 nav {
@@ -114,8 +129,14 @@ nav {
   padding: 4rem 3.5rem;
   display: flex; flex-direction: column; justify-content: center;
 }
-.hero-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.5rem; }
-.hero-name { font-family: var(--serif); font-size: 46px; font-weight: 600; line-height: 1.1; margin-bottom: 0.5rem; }
+.hero-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.6rem; }
+.hero-label::before, .hero-label::after { content: ''; width: 26px; height: 1px; background: var(--accent); opacity: 0.5; }
+.hero-label::before { display: none; }
+.hero-name {
+  font-family: var(--serif); font-size: 46px; font-weight: 600; line-height: 1.1; margin-bottom: 0.5rem;
+  color: var(--accent); letter-spacing: 0.01em;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.55), 0 -1px 1px rgba(0,0,0,0.28), 0 2px 3px rgba(60,25,30,0.18);
+}
 .hero-role { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--ink-soft); margin-bottom: 2rem; }
 .hero-desc { font-size: 14px; color: var(--ink-soft); max-width: 420px; line-height: 1.8; margin-bottom: 2rem; }
 .contact-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
@@ -130,9 +151,13 @@ nav {
 /* ===== LAYOUT ===== */
 .wrap { max-width: 980px; margin: 0 auto; padding: 0 2.5rem; }
 section { padding: 3.5rem 0; border-bottom: 1px solid var(--line); }
-.section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; }
+.section-header {
+  display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem;
+  padding-bottom: 0.75rem; border-bottom: 3px double var(--accent);
+}
 .section-number { font-size: 11px; color: var(--ink-muted); letter-spacing: 0.1em; }
-.section-title { font-family: var(--serif); font-size: 22px; font-weight: 400; }
+.section-title { font-family: var(--serif); font-size: 22px; font-weight: 400; letter-spacing: 0.01em; }
+.section-header::after { content: '❦'; margin-left: auto; color: var(--accent); font-size: 16px; opacity: 0.75; align-self: center; }
 
 /* ===== TWO-COL ===== */
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
