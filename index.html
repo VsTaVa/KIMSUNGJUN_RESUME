@@ -40,6 +40,55 @@ nav {
 .nav-links a { font-size: 12px; color: var(--ink-muted); letter-spacing: 0.06em; text-transform: uppercase; transition: color .2s; }
 .nav-links a:hover { color: var(--ink); }
 
+/* ===== BANNER — 추후 3D 모델 뷰어 + 라이팅 시스템 마운트 위치 ===== */
+.banner {
+  position: relative;
+  min-height: 460px;
+  background: radial-gradient(circle at 50% 38%, #3a1a20 0%, #241016 62%, #180a0e 100%);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+.banner-label {
+  position: absolute; top: 1.25rem; left: 1.75rem; z-index: 2;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+/* ↓ 실제 3D 뷰어(three.js 등)의 canvas 를 이 요소(#banner-stage)에 마운트하세요 */
+.banner-stage {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1.6rem;
+}
+.banner-caption {
+  font-family: var(--serif); font-style: italic;
+  font-size: 16px; color: rgba(255,255,255,0.78); letter-spacing: 0.02em;
+}
+.banner-hint { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.06em; }
+
+/* placeholder 큐브 — 실제 3D 뷰어를 붙이면 이 블록(.cube-scene)만 삭제하면 됩니다 */
+.cube-scene { width: 96px; height: 96px; perspective: 520px; }
+.cube {
+  width: 100%; height: 100%; position: relative;
+  transform-style: preserve-3d;
+  animation: cube-spin 16s linear infinite;
+}
+.cube .face {
+  position: absolute; width: 96px; height: 96px;
+  border: 1px solid rgba(226,178,188,0.5);
+  background: rgba(114,47,55,0.14);
+  box-shadow: inset 0 0 26px rgba(226,178,188,0.08);
+}
+.cube .f-front  { transform: rotateY(0deg)    translateZ(48px); }
+.cube .f-back   { transform: rotateY(180deg)  translateZ(48px); }
+.cube .f-right  { transform: rotateY(90deg)   translateZ(48px); }
+.cube .f-left   { transform: rotateY(-90deg)  translateZ(48px); }
+.cube .f-top    { transform: rotateX(90deg)   translateZ(48px); }
+.cube .f-bottom { transform: rotateX(-90deg)  translateZ(48px); }
+@keyframes cube-spin {
+  from { transform: rotateX(-22deg) rotateY(0deg); }
+  to   { transform: rotateX(-22deg) rotateY(360deg); }
+}
+
 /* ===== HERO ===== */
 .hero {
   display: grid; grid-template-columns: 200px 1fr;
@@ -199,6 +248,7 @@ footer {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 680px) {
+  .banner { min-height: 320px; }
   .hero { grid-template-columns: 1fr; }
   .hero-left { padding: 2.5rem; flex-direction: row; gap: 1rem; justify-content: flex-start; }
   .hero-right { padding: 2rem 1.5rem; }
@@ -223,6 +273,28 @@ footer {
     <li><a href="#intro">자기소개서</a></li>
   </ul>
 </nav>
+
+<!-- BANNER — 추후 3D 모델 뷰어 + 라이팅 시스템을 이 자리에 구축 -->
+<div class="banner">
+  <span class="banner-label">3D Showreel</span>
+  <!-- ▼▼ three.js 등 WebGL 렌더러의 canvas 를 이 #banner-stage 안에 append 하세요 ▼▼ -->
+  <div class="banner-stage" id="banner-stage">
+    <!-- placeholder: 실제 3D 뷰어 연결 시 아래 .cube-scene 삭제 -->
+    <div class="cube-scene">
+      <div class="cube">
+        <div class="face f-front"></div>
+        <div class="face f-back"></div>
+        <div class="face f-right"></div>
+        <div class="face f-left"></div>
+        <div class="face f-top"></div>
+        <div class="face f-bottom"></div>
+      </div>
+    </div>
+    <p class="banner-caption">3D 모델링 · 라이팅 시스템</p>
+    <p class="banner-hint">이 공간에 3D 작업물이 표시될 예정입니다</p>
+  </div>
+  <!-- ▲▲ 마운트 지점 끝 ▲▲ -->
+</div>
 
 <!-- HERO -->
 <div class="hero" id="about">
