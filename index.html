@@ -727,6 +727,15 @@ footer {
         <figcaption><span class="art-title">Iron Maiden</span><span class="art-meta">2025 · UE5 · 이미지 12장</span></figcaption>
       </figure>
 
+      <figure class="art-card" onclick="openProject('mol')" tabindex="0" role="button" aria-label="M.O.L. 상세 보기">
+        <div class="art-frame">
+          <span class="art-badge">Team · UE5</span>
+          <img src="assets/portfolio/mol-blue-main.jpg" alt="M.O.L. (My Observation Log)" loading="lazy">
+          <span class="art-open">클릭하여 작품 보기 →</span>
+        </div>
+        <figcaption><span class="art-title">M.O.L.</span><span class="art-meta">2025 · Team · 이미지 15장</span></figcaption>
+      </figure>
+
     </div>
   </div>
 </section>
@@ -951,6 +960,14 @@ const projects = {
     link: "",
     linkText: "",
     images: ["iron-main","iron-00","iron-wire","iron-prop","iron-before-03","iron-before-02","iron-before-01","iron-05","iron-04","iron-03","iron-02","iron-01"]
+  },
+  mol: {
+    title: "M.O.L. (My Observation Log)",
+    meta: "2025.03 – 2025.06 · Team Project · Unreal Engine 5",
+    desc: "4인 팀 프로젝트에서 3D 배경 그래픽을 중심으로 배경 모델링·라이팅·머티리얼 세팅을 담당했습니다. 퍼포먼스와 몰입감을 동시에 고려했고, 소규모 팀 특성상 이펙트·파티클 작업까지 맡았습니다. Blue Room·Orange Room 두 공간을 제작했으며, 와이어프레임·프랍 등 제작 과정도 함께 담았습니다. 리소스 관리는 Visual SVN Server, Notion, 구글 스프레드시트를 활용해 자료 중복·누락을 방지했습니다.",
+    link: "https://www.artstation.com/artwork/K355DX",
+    linkText: "ArtStation에서 보기",
+    images: ["mol-blue-main","mol-blue-00","mol-blue-01","mol-blue-02","mol-blue-03","mol-blue-04","mol-blue-wire-1","mol-blue-prop-1","mol-blue-wire-2","mol-blue-prop-2","mol-orange-01","mol-orange-02","mol-orange-03","mol-orange-prop","mol-orange-wire"]
   }
 };
 function openProject(id) {
