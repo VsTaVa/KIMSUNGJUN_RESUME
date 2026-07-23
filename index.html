@@ -409,6 +409,9 @@ section { padding: 3.5rem 0; }
 .proj-link + .proj-link { margin-left: 1.5rem; }
 .proj-images { display: flex; flex-direction: column; gap: 1rem; }
 .proj-images img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 2px; }
+/* 이미지 사이에 끼워넣는 유튜브 영상 — 이미지와 같은 폭, 16:9 유지 */
+.proj-video { position: relative; width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 2px; overflow: hidden; background: #180a0e; }
+.proj-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
 
 /* ===== FOOTER ===== */
 footer {
@@ -1336,7 +1339,8 @@ function toggleActs(id) {
 }
 
 /* ===== 프로젝트 상세 모달 ===== */
-/* 새 프로젝트 추가: 여기에 항목 추가 (images 는 assets/portfolio/ 의 파일명, 확장자 제외) */
+/* 새 프로젝트 추가: 여기에 항목 추가 (images 는 assets/portfolio/ 의 파일명, 확장자 제외)
+   영상을 끼워넣으려면 원하는 순서 자리에 {video:"유튜브ID"} 를 넣으면 된다 */
 const projects = {
   sagrada: {
     title: "Sagrada Familia",
@@ -1346,7 +1350,7 @@ const projects = {
     linkText: "ArtStation에서 보기",
     link2: "https://youtu.be/jFLk0PH9vyE",
     linkText2: "YouTube에서 보기",
-    images: ["sagrada-main","sagrada-00","sagrada-10","sagrada-09","sagrada-08","sagrada-07","sagrada-06","sagrada-05","sagrada-04","sagrada-03","sagrada-02","sagrada-01"]
+    images: ["sagrada-main",{video:"jFLk0PH9vyE"},"sagrada-00","sagrada-10","sagrada-09","sagrada-08","sagrada-07","sagrada-06","sagrada-05","sagrada-04","sagrada-03","sagrada-02","sagrada-01"]
   },
   iron: {
     title: "Iron Maiden",
@@ -1377,8 +1381,11 @@ function openProject(id) {
   const link2 = document.getElementById('pm-link2');
   if (p.link2) { link2.href = p.link2; link2.textContent = (p.linkText2 || '링크') + ' ↗'; link2.style.display = 'inline-flex'; }
   else { link2.style.display = 'none'; }
-  document.getElementById('pm-images').innerHTML =
-    p.images.map(n => '<img src="assets/portfolio/' + n + '.jpg" alt="' + p.title + '" loading="lazy">').join('');
+  document.getElementById('pm-images').innerHTML = p.images.map(n =>
+    typeof n === 'string'
+      ? '<img src="assets/portfolio/' + n + '.jpg" alt="' + p.title + '" loading="lazy">'
+      : '<div class="proj-video"><iframe src="https://www.youtube.com/embed/' + n.video + '" title="' + p.title + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>'
+  ).join('');
   const m = document.getElementById('proj-modal');
   m.classList.add('open');
   m.scrollTop = 0;
@@ -1387,6 +1394,8 @@ function openProject(id) {
 }
 function closeProject() {
   document.getElementById('proj-modal').classList.remove('open');
+  /* 내용을 비워 재생 중이던 영상의 소리가 닫은 뒤에도 이어지지 않게 한다 */
+  document.getElementById('pm-images').innerHTML = '';
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeProject(); });
