@@ -17,6 +17,8 @@
   --accent: #722f37;
   --accent-pale: #f0dfe1;
   --line: #ddceb3;
+  --desk: #241a18;        /* 시트 바깥 배경 (책상) */
+  --sheet-w: 1200px;      /* 종이 폭 — 레일 148px 포함 */
   --serif: 'Playfair Display', serif;
   --sans: 'Noto Sans KR', sans-serif;
   --script: 'Dancing Script', cursive;
@@ -25,18 +27,29 @@
 /* ===== RESET ===== */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size:14px; line-height:1.75; position: relative; padding-right: 148px; }
+body { font-family: var(--sans); background: var(--desk); color: var(--ink); font-size:14px; line-height:1.75; position: relative; }
 a { color: inherit; text-decoration: none; }
 
-/* ===== 빈티지 종이 텍스처 / 얼룩 (포스터 톤) ===== */
-body::before {
-  content: ''; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+/* ===== 종이 시트 — 어두운 책상 위에 놓인 이력서 한 장 ===== */
+.sheet {
+  position: relative;
+  max-width: var(--sheet-w);
+  margin: 0 auto;
+  min-height: 100vh;
+  padding-right: 148px;          /* 오른쪽 레일 자리 */
+  background: var(--paper);
+  box-shadow: 0 0 80px rgba(0,0,0,0.55);
+}
+/* 빈티지 종이 결 — 시트 안쪽에만 적용 */
+.sheet::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 260px 260px;
   opacity: 0.32; mix-blend-mode: multiply;
 }
-body::after {
-  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+/* 가장자리 음영 */
+.sheet::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
   background:
     radial-gradient(120% 80% at 50% 0%, transparent 55%, rgba(60,30,35,0.10) 100%),
     radial-gradient(110% 90% at 20% 100%, rgba(74,45,50,0.08), transparent 60%);
@@ -45,7 +58,9 @@ body::after {
 
 /* ===== NAV — 오른쪽 세로 레일 (full-height, 가로 텍스트) ===== */
 nav {
-  position: fixed; top: 0; right: 0; height: 100vh; width: 148px; z-index: 100;
+  /* 시트 오른쪽 가장자리에 붙인다 — 시트 중앙 정렬을 따라감 */
+  position: fixed; top: 0; height: 100vh; width: 148px; z-index: 100;
+  left: 50%; margin-left: calc(var(--sheet-w) / 2 - 148px);
   display: flex; flex-direction: column; align-items: center; gap: 1.2rem;
   padding: 2.4rem 1rem;
   background: rgba(245,237,220,0.85);
@@ -128,6 +143,8 @@ a.chip.chip-primary:hover { background: #8a3a43; border-color: #8a3a43; color: #
 
 /* ===== LAYOUT ===== */
 .wrap { max-width: 980px; margin: 0 auto; padding: 0 2.5rem; }
+/* 히어로도 같은 칼럼 안에 둬서 아래 섹션들과 좌측선을 맞춘다 */
+.hero-wrap { padding-top: 3.5rem; }
 section { padding: 3.5rem 0; }
 .section-header {
   display: flex; align-items: baseline; gap: 0.9rem; margin-bottom: 2rem;
@@ -378,11 +395,17 @@ footer {
 }
 
 /* ===== RESPONSIVE ===== */
+/* 시트 폭보다 좁아지면 시트를 화면 끝까지 펼치고 레일도 화면 오른쪽으로 */
+@media (max-width: 1200px) {
+  .sheet { max-width: none; box-shadow: none; }
+  nav { left: auto; right: 0; margin-left: 0; }
+}
+
 /* 좁은 화면: 오른쪽 세로 레일 → 상단 가로 nav 로 복귀 */
 @media (max-width: 1080px) {
-  body { padding-right: 0; }
+  .sheet { padding-right: 0; }
   nav {
-    position: sticky; top: 0; right: auto; height: auto; width: auto;
+    position: sticky; top: 0; left: auto; right: auto; margin-left: 0; height: auto; width: auto;
     flex-direction: row; justify-content: space-between; align-items: center;
     padding: 0.75rem 1.25rem; gap: 1rem;
     border-left: none; border-bottom: 1px solid var(--line);
@@ -436,8 +459,10 @@ footer {
   </ul>
 </nav>
 
+<div class="sheet">
 
 <!-- HERO -->
+<div class="wrap hero-wrap">
 <div class="hero" id="about">
   <div class="hero-left">
     <div class="avatar-frame">
@@ -460,6 +485,7 @@ footer {
       <!-- SNS 링크는 페이지 하단 footer 로 이동 -->
     </div>
   </div>
+</div>
 </div>
 
 <!-- EDUCATION -->
@@ -1252,6 +1278,8 @@ footer {
     <a href="https://www.linkedin.com/in/sungjun-kim-3301a63b8/" target="_blank" rel="noopener" class="chip">LinkedIn ↗</a>
   </div>
 </footer>
+
+</div><!-- /.sheet -->
 
 <script>
 function toggle(id) {
