@@ -395,6 +395,11 @@ footer {
   letter-spacing: 0.04em;
   border-top: 1px solid var(--line);
 }
+/* 연락처 줄 아래 SNS 칩 — 가운데 정렬, 좁은 화면에서 줄바꿈 */
+.footer-sns {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;
+  margin-top: 1.25rem;
+}
 
 /* ===== RESPONSIVE ===== */
 /* 좁은 화면: 오른쪽 세로 레일 → 상단 가로 nav 로 복귀 */
@@ -486,11 +491,7 @@ footer {
       <span class="chip">010-2120-8304</span><!-- 연락처 수정 -->
       <span class="chip">ksb3804k@naver.com</span><!-- 이메일 수정 -->
       <span class="chip">경기도 화성시</span><!-- 주소 수정 -->
-      <!-- SNS: 링크 추가/수정은 아래 a.chip 을 복사해서 사용 -->
-      <a href="https://www.artstation.com/vis_ta_via" target="_blank" rel="noopener" class="chip chip-primary">ArtStation ↗</a>
-      <a href="https://www.instagram.com/vs_ta_va" target="_blank" rel="noopener" class="chip">Instagram ↗</a>
-      <a href="https://www.youtube.com/@Vs_ta_va" target="_blank" rel="noopener" class="chip">YouTube ↗</a>
-      <a href="https://www.linkedin.com/in/sungjun-kim-3301a63b8/" target="_blank" rel="noopener" class="chip">LinkedIn ↗</a>
+      <!-- SNS 링크는 페이지 하단 footer 로 이동 -->
     </div>
   </div>
 </div>
@@ -1275,6 +1276,13 @@ footer {
 <!-- FOOTER -->
 <footer>
   김성준 &nbsp;·&nbsp; ksb3804k@naver.com &nbsp;·&nbsp; 경기도 화성시<!-- 연락처 수정 -->
+  <!-- SNS: 링크 추가/수정은 아래 a.chip 을 복사해서 사용 -->
+  <div class="footer-sns">
+    <a href="https://www.artstation.com/vis_ta_via" target="_blank" rel="noopener" class="chip chip-primary">ArtStation ↗</a>
+    <a href="https://www.instagram.com/vs_ta_va" target="_blank" rel="noopener" class="chip">Instagram ↗</a>
+    <a href="https://www.youtube.com/@Vs_ta_va" target="_blank" rel="noopener" class="chip">YouTube ↗</a>
+    <a href="https://www.linkedin.com/in/sungjun-kim-3301a63b8/" target="_blank" rel="noopener" class="chip">LinkedIn ↗</a>
+  </div>
 </footer>
 
 <script>
