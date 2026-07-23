@@ -215,11 +215,13 @@ section { padding: 3.5rem 0; }
   cursor: pointer;
   user-select: none;
 }
-.acc-header-left { display: flex; align-items: center; gap: 1rem; }
+/* 태그 자리를 고정 폭 트랙으로 예약 — 태그 길이와 무관하게 제목이 같은 x에서 시작한다 */
+.acc-header-left { display: grid; grid-template-columns: 96px 1fr; align-items: center; gap: 1rem; }
 .acc-tag {
   font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase;
   background: var(--accent); color: #fff; font-weight: 700;
-  border-radius: 2px; padding: 2px 8px; flex-shrink: 0;
+  border-radius: 2px; padding: 2px 8px;
+  justify-self: start; white-space: nowrap;
 }
 .acc-title { font-size: 14px; font-weight: 500; }
 .acc-meta { font-size: 11px; color: var(--ink-muted); }
@@ -623,7 +625,7 @@ footer {
             <span class="acc-title">M.O.L. (My Observation Log)</span>
           </div>
           <div class="acc-right">
-            <span class="acc-period"> — 2026.05</span>
+            <span class="acc-period">2025.03 — 2026.04</span>
             <div class="acc-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
         </div>
