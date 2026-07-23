@@ -303,6 +303,7 @@ section { padding: 3.5rem 0; }
   color: var(--accent); font-size: 12px; font-weight: 700; top: 1px;
 }
 .acc-link:hover { border-color: var(--accent); }
+.acc-link + .acc-link { margin-left: 1.5rem; }
 .acc-link svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; }
 .acc-members { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
 .member-chip { font-size: 11px; background: var(--paper-dark); border-radius: 2px; padding: 2px 8px; color: var(--ink-soft); }
@@ -399,6 +400,7 @@ section { padding: 3.5rem 0; }
   transition: border-color .2s;
 }
 .proj-link:hover { border-color: var(--accent); }
+.proj-link + .proj-link { margin-left: 1.5rem; }
 .proj-images { display: flex; flex-direction: column; gap: 1rem; }
 .proj-images img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 2px; }
 
@@ -748,6 +750,7 @@ footer {
               <li>발표회에서 AI를 창작의 방향성과 가치관 관점에서 바라본 개인 생각 발표</li>
             </ul>
             <a href="https://www.artstation.com/artwork/XJGgkY" target="_blank" class="acc-link">ArtStation에서 보기 <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+            <a href="https://youtu.be/jFLk0PH9vyE" target="_blank" class="acc-link">YouTube에서 보기 <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
           </div>
         </div>
       </div>
@@ -842,6 +845,7 @@ footer {
     <h3 class="proj-title" id="pm-title"></h3>
     <p class="proj-desc" id="pm-desc"></p>
     <a class="proj-link" id="pm-link" target="_blank" rel="noopener"></a>
+    <a class="proj-link" id="pm-link2" target="_blank" rel="noopener"></a>
     <div class="proj-images" id="pm-images"></div>
   </article>
 </div>
@@ -1322,6 +1326,8 @@ const projects = {
     desc: "가우디의 미완공 건축물을 자료 조사와 창작 해석을 바탕으로 Unreal Engine 5에서 재구성한 환경 디자인 프로젝트입니다. 복잡한 건축 구조를 프랍 단위로 분리 제작해 게임 환경에 최적화했고, 현실 건축의 재질 표현과 미적 과장을 균형 있게 조합해 건축적 신뢰성과 예술적 분위기를 동시에 담았습니다. 라이팅으로 시간대별 분위기를 연출하고 스테인드글라스의 색 투과를 표현했습니다.",
     link: "https://www.artstation.com/artwork/XJGgkY",
     linkText: "ArtStation에서 보기",
+    link2: "https://youtu.be/jFLk0PH9vyE",
+    linkText2: "YouTube에서 보기",
     images: ["sagrada-main","sagrada-00","sagrada-10","sagrada-09","sagrada-08","sagrada-07","sagrada-06","sagrada-05","sagrada-04","sagrada-03","sagrada-02","sagrada-01"]
   },
   iron: {
@@ -1350,6 +1356,9 @@ function openProject(id) {
   const link = document.getElementById('pm-link');
   if (p.link) { link.href = p.link; link.textContent = (p.linkText || '링크') + ' ↗'; link.style.display = 'inline-flex'; }
   else { link.style.display = 'none'; }
+  const link2 = document.getElementById('pm-link2');
+  if (p.link2) { link2.href = p.link2; link2.textContent = (p.linkText2 || '링크') + ' ↗'; link2.style.display = 'inline-flex'; }
+  else { link2.style.display = 'none'; }
   document.getElementById('pm-images').innerHTML =
     p.images.map(n => '<img src="assets/portfolio/' + n + '.jpg" alt="' + p.title + '" loading="lazy">').join('');
   const m = document.getElementById('proj-modal');
