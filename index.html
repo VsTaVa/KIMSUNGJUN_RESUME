@@ -244,6 +244,8 @@ section { padding: 3.5rem 0; }
   max-height: 800px;
   border-top: 1px solid var(--line);
 }
+/* 본문이 긴 항목은 잘리지 않도록 별도 확보 */
+#proj-imom.open .acc-body { max-height: 1400px; }
 .acc-body-inner { padding: 1.25rem 1.5rem; }
 .acc-summary { font-size: 13px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 1rem; }
 .acc-list { padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
@@ -256,6 +258,7 @@ section { padding: 3.5rem 0; }
   padding-bottom: 1px;
   transition: border-color .2s;
 }
+.acc-body-inner strong { color: var(--accent); font-weight: 700; }
 .acc-link:hover { border-color: var(--accent); }
 .acc-link svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; }
 .acc-members { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
@@ -712,6 +715,23 @@ footer {
         <div class="acc-body">
           <div class="acc-body-inner">
             <p class="acc-summary">아동 심리 기반 도서 삽화 제작 프로젝트. 색감과 조형 감각을 익히며 이후 3D 배경 제작 시 텍스처 표현 강점으로 이어졌습니다.</p>
+            <ul class="acc-list">
+              <li><strong>활동처</strong> — (주)아이큐 비타민</li>
+              <li><strong>참여 역할</strong> — 아이'맘' 처방 동화 제작 프로젝트를 위한 삽화 콘티를 바탕으로 디자인적 다양성을 표현해내는 과제를 수행함으로써 역량 향상 및 강화를 목적으로 하였습니다.</li>
+            </ul>
+            <p class="acc-summary" style="margin-top:1rem;">
+              군 입대 전, 단기간이지만 '<strong>IQ 비타민</strong>'에서 인턴으로 근무하며 아동 심리 기반 도서의 삽화 제작을 맡았습니다.
+              원화 자료를 바탕으로 벡터 기반 일러스트 작업을 수행하면서, 색감 조율·형태 단순화·시각적 전달력 등을 고려하는 훈련을 했습니다.
+            </p>
+            <p class="acc-summary">
+              이 경험을 통해 Photoshop 운용 능력과 함께, 제한된 리소스 안에서 효율적으로 결과물을 완성하는 법을 배웠습니다.
+              또한 실제 출판 과정에 참여하여, 프로젝트 일정 관리와 피드백 반영 과정을 경험한 것도 큰 자산이 되었습니다.
+            </p>
+            <p class="acc-summary">
+              특히 이 과정에서 익힌 색채 감각과 조형 이해력은 이후 3D 작업에서 손맵 텍스처 제작, 아틀라스 정리, 텍스처 수정 등에 강점으로 작용했습니다.
+              아래는 정식 출판된 동화책 관련 링크입니다.
+            </p>
+            <a href="https://www.iqvitamin.co.kr/shop_view/?idx=4" target="_blank" class="acc-link">출판된 동화책 보기 <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
           </div>
         </div>
       </div>
@@ -757,7 +777,7 @@ footer {
           <img src="assets/portfolio/mol-blue-main.jpg" alt="M.O.L. (My Observation Log)" loading="lazy">
           <span class="art-open">클릭하여 작품 보기 →</span>
         </div>
-        <figcaption><span class="art-title">M.O.L.</span><span class="art-meta">2025 · Team · 이미지 15장</span></figcaption>
+        <figcaption><span class="art-title">M.O.L.</span><span class="art-meta">2025 · Unity · 이미지 15장</span></figcaption>
       </figure>
 
     </div>
