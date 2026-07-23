@@ -178,6 +178,13 @@ section { padding: 3.5rem 0; }
 }
 .section-number { font-family: var(--script); font-size: 40px; font-weight: 700; color: var(--accent); line-height: 0.9; }
 .section-title { font-family: var(--sans); font-size: 21px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+/* 섹션 헤더 우측 목차 아이콘 — 본체 1줄 + box-shadow 2줄로 3선 구성 */
+.section-header::after {
+  content: ''; margin-left: auto; align-self: center; flex-shrink: 0;
+  width: 20px; height: 2px; background: var(--accent);
+  box-shadow: 0 -6px 0 var(--accent), 0 6px 0 var(--accent);
+  opacity: 0.75;
+}
 
 /* ===== TWO-COL ===== */
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
@@ -569,17 +576,17 @@ footer {
           <div class="skill-card">
             <div class="sk-name">3Ds Max</div>
             <div class="sk-cat">공간 제작</div>
-            <div class="stars">★★★★ <span class="off">☆</span></div>
+            <div class="stars">★★★★★</div>
           </div>
           <div class="skill-card">
             <div class="sk-name">Z Brush</div>
             <div class="sk-cat">공간 제작</div>
-            <div class="stars">★★★ <span class="off">☆☆</span></div>
+            <div class="stars">★★★★ <span class="off">☆</span></div>
           </div>
           <div class="skill-card">
             <div class="sk-name">Unity Engine</div>
             <div class="sk-cat">공간 제작</div>
-            <div class="stars">★★★ <span class="off">☆☆</span></div>
+            <div class="stars">★★★★ <span class="off">☆</span></div>
           </div>
         </div>
       </div>
@@ -590,12 +597,12 @@ footer {
           <div class="skill-card">
             <div class="sk-name">Substance 3D Painter</div>
             <div class="sk-cat">시각 표현</div>
-            <div class="stars">★★★★ <span class="off">☆</span></div>
+            <div class="stars">★★★★★</div>
           </div>
           <div class="skill-card">
             <div class="sk-name">Photoshop</div>
             <div class="sk-cat">시각 표현</div>
-            <div class="stars">★★★★ <span class="off">☆</span></div>
+            <div class="stars">★★★★★</div>
           </div>
           <div class="skill-card">
             <div class="sk-name">Illustrator</div>
@@ -605,7 +612,7 @@ footer {
           <div class="skill-card">
             <div class="sk-name">Premiere Pro</div>
             <div class="sk-cat">시각 표현</div>
-            <div class="stars">★★★ <span class="off">☆☆</span></div>
+            <div class="stars">★★★★ <span class="off">☆</span></div>
           </div>
           <div class="skill-card">
             <div class="sk-name">After Effects</div>
@@ -631,7 +638,7 @@ footer {
           <div class="skill-card">
             <div class="sk-name">Notebook LM</div>
             <div class="sk-cat">AI & 시스템</div>
-            <div class="stars">★★★ <span class="off">☆☆</span></div>
+            <div class="stars">★★★★ <span class="off">☆</span></div>
           </div>
           <div class="skill-card">
             <div class="sk-name">Notion</div>
@@ -641,7 +648,7 @@ footer {
           <div class="skill-card">
             <div class="sk-name">Gemini</div>
             <div class="sk-cat">AI & 시스템</div>
-            <div class="stars">★★★ <span class="off">☆☆</span></div>
+            <div class="stars">★★★★ <span class="off">☆</span></div>
           </div>
         </div>
       </div>
@@ -925,6 +932,35 @@ footer {
               <li>강의 내용을 따라오기 어려워하는 학생들에게 툴 사용법과 과제를 이해하기 쉽게 설명하고, 개인별 피드백을 제공하며 학습효과를 높이고자 했습니다.</li>
               <li>복잡한 기술적 내용을 단순화하여 전달하는 능력, 그리고 상대방의 이해도를 고려한 커뮤니케이션 역량을 기를 수 있었습니다.</li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item" id="exp-crowd">
+        <div class="acc-header" onclick="toggle('exp-crowd')">
+          <div class="acc-header-left">
+            <span class="acc-tag">외주</span>
+            <span class="acc-title">한국디자인진흥원 크라우드웍스</span>
+          </div>
+          <div class="acc-right">
+            <span class="acc-period">2021.09.27 — 2021.12.03</span>
+            <div class="acc-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-inner">
+            <p class="acc-subhead">프로젝트 간단 설명</p>
+            <ul class="acc-list">
+              <li>한국디자인진흥원에서 진행한 인공지능 학습용 데이터 구축 사업에 참여하여, OCR 기반 AI 학습 데이터를 제작하는 외주 프로젝트를 수행했습니다.</li>
+              <li>데이터 정제 및 가공 과정을 경험하며, 인공지능이 데이터를 학습하는 구조와 제작 프로세스에 대해 이해할 수 있었습니다.</li>
+            </ul>
+            <p class="acc-subhead">주 시도들</p>
+            <ul class="acc-list numbered">
+              <li>OCR 인공지능 학습용 데이터 제작 및 검수</li>
+              <li>데이터 정제 및 AI 학습 구조 프로세스 이해</li>
+              <li>반복적인 데이터 가공 과정 속에서 정확성과 일관성의 중요성 경험</li>
+            </ul>
+            <a href="https://kidp.or.kr/?menuno=1383" target="_blank" class="acc-link">사업 페이지 보기 <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
           </div>
         </div>
       </div>
