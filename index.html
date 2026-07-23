@@ -217,6 +217,8 @@ section { padding: 3.5rem 0; }
 }
 /* 태그 자리를 고정 폭 트랙으로 예약 — 태그 길이와 무관하게 제목이 같은 x에서 시작한다 */
 .acc-header-left { display: grid; grid-template-columns: 96px 1fr; align-items: center; gap: 1rem; }
+/* 경험 섹션은 태그가 짧아(발표/전시/조교/언론기구) 트랙을 좁게 잡는다 */
+#experience .acc-header-left { grid-template-columns: 68px 1fr; gap: 0.8rem; }
 .acc-tag {
   font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase;
   background: var(--accent); color: #fff; font-weight: 700;
