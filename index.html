@@ -71,10 +71,6 @@ nav {
 .nav-logo { width: 100%; max-width: 108px; height: auto; display: block; margin: 0 auto; }
 /* 레일 구분선 — 스킬 섹션 헤더와 동일한 빨간 2줄(double) */
 .rail-divider { width: 100%; height: 0; border: 0; border-top: 3px double var(--accent); margin: 0; }
-.nav-name {
-  font-family: var(--serif); font-size: 16px; color: var(--accent);
-  letter-spacing: 0.14em; text-align: center;
-}
 .nav-links { width: 100%; display: flex; flex-direction: column; align-items: stretch; gap: 0; list-style: none; margin: 0; }
 .nav-links li:not(:last-child) { border-bottom: 1px solid var(--line); }
 .nav-links a {
@@ -413,7 +409,6 @@ footer {
   }
   .nav-logo-link { width: auto; }
   .nav-logo { max-width: 84px; }
-  .nav-name { font-size: 15px; }
   .rail-divider { display: none; }
   .nav-links { width: auto; flex-direction: row; align-items: center; gap: 1.1rem; flex-wrap: wrap; margin: 0; }
   .nav-links li:not(:last-child) { border-bottom: none; }
@@ -445,8 +440,6 @@ footer {
 <nav>
   <!-- 로고: assets/vstava-logo.svg 파일만 넣으면 여기에 표시됨 -->
   <a href="#about" class="nav-logo-link" aria-label="홈"><img class="nav-logo" src="assets/vstava-logo.png" alt="VS TA VA"></a>
-  <hr class="rail-divider">
-  <span class="nav-name">김성준</span><!-- 이름 수정 -->
   <hr class="rail-divider">
   <ul class="nav-links">
     <li><a href="#about">소개</a></li>
