@@ -168,6 +168,12 @@ nav {
   background: var(--paper-warm);
   letter-spacing: 0.02em;
 }
+/* SNS 링크 칩 — 클릭 가능하므로 hover 반응을 준다 */
+a.chip { transition: color .2s, border-color .2s, background .2s; }
+a.chip:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-pale); }
+/* ArtStation 은 포트폴리오 본진이라 와인색으로 강조 */
+a.chip.chip-primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 500; }
+a.chip.chip-primary:hover { background: #8a3a43; border-color: #8a3a43; color: #fff; }
 
 /* ===== LAYOUT ===== */
 .wrap { max-width: 980px; margin: 0 auto; padding: 0 2.5rem; }
@@ -513,7 +519,11 @@ footer {
       <span class="chip">010-2120-8304</span><!-- 연락처 수정 -->
       <span class="chip">ksb3804k@naver.com</span><!-- 이메일 수정 -->
       <span class="chip">경기도 화성시</span><!-- 주소 수정 -->
-      <!-- SNS: <a href="링크" class="chip" target="_blank">ArtStation ↗</a> -->
+      <!-- SNS: 링크 추가/수정은 아래 a.chip 을 복사해서 사용 -->
+      <a href="https://www.artstation.com/vis_ta_via" target="_blank" rel="noopener" class="chip chip-primary">ArtStation ↗</a>
+      <a href="https://www.instagram.com/vs_ta_va" target="_blank" rel="noopener" class="chip">Instagram ↗</a>
+      <a href="https://www.youtube.com/@Vs_ta_va" target="_blank" rel="noopener" class="chip">YouTube ↗</a>
+      <a href="https://www.linkedin.com/in/sungjun-kim-3301a63b8/" target="_blank" rel="noopener" class="chip">LinkedIn ↗</a>
     </div>
   </div>
 </div>
