@@ -217,8 +217,9 @@ section { padding: 3.5rem 0; }
 }
 /* 태그 자리를 고정 폭 트랙으로 예약 — 태그 길이와 무관하게 제목이 같은 x에서 시작한다 */
 .acc-header-left { display: grid; grid-template-columns: 96px 1fr; align-items: center; gap: 1rem; }
-/* 경험 섹션은 태그가 짧아(발표/전시/조교/언론기구) 트랙을 좁게 잡는다 */
-#experience .acc-header-left { grid-template-columns: 68px 1fr; gap: 0.8rem; }
+/* 경험/수업 수료 섹션은 태그가 짧아(발표/전시/조교/컨퍼런스) 트랙을 좁게 잡는다 */
+#experience .acc-header-left,
+#courses .acc-header-left { grid-template-columns: 68px 1fr; gap: 0.8rem; }
 .acc-tag {
   font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase;
   background: var(--accent); color: #fff; font-weight: 700;
@@ -249,6 +250,25 @@ section { padding: 3.5rem 0; }
 /* 본문이 긴 항목은 잘리지 않도록 별도 확보 */
 #proj-imom.open .acc-body,
 #exp-caps.open .acc-body { max-height: 1400px; }
+/* 활동 모음 토글이 열리면 부모 아코디언 높이를 더 키운다 */
+#exp-media.open.acts-open .acc-body { max-height: 2800px; }
+
+/* ===== 중첩 토글 (활동 모음) ===== */
+.acts { margin-top: 1.5rem; border-top: 1px solid var(--line); padding-top: 1rem; }
+.acts-head {
+  display: inline-flex; align-items: center; gap: 0.45rem; cursor: pointer; user-select: none;
+  font-size: 13px; font-weight: 700; color: var(--accent);
+}
+.acts-head svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform .25s; }
+.acts.open .acts-head svg { transform: rotate(180deg); }
+.acts-body { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+.acts.open .acts-body { max-height: 1800px; }
+.acts-list { list-style: none; padding: 0.9rem 0 0; display: flex; flex-direction: column; gap: 0.45rem; }
+.acts-list a {
+  font-size: 12px; color: var(--ink-soft); line-height: 1.6;
+  border-bottom: 1px solid transparent; transition: color .2s, border-color .2s;
+}
+.acts-list a:hover { color: var(--accent); border-color: var(--accent-pale); }
 .acc-body-inner { padding: 1.25rem 1.5rem; }
 .acc-summary { font-size: 13px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 1rem; }
 .acc-list { padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
@@ -433,6 +453,7 @@ footer {
     <li><a href="#projects">프로젝트</a></li>
     <li><a href="#portfolio">포트폴리오</a></li>
     <li><a href="#experience">경험</a></li>
+    <li><a href="#courses">수업 수료</a></li>
     <li><a href="#intro">자기소개서</a></li>
   </ul>
 </nav>
@@ -930,7 +951,221 @@ footer {
               <li>Adobe Premiere Pro, Adobe After Effects를 활용한 영상 편집</li>
               <li>Adobe Photoshop을 활용한 썸네일 제작 및 영상 소스 제작</li>
             </ul>
+            <div class="acts" id="media-acts">
+              <div class="acts-head" onclick="toggleActs('media-acts')">
+                <span>활동 모음 (영상 23편)</span>
+                <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="acts-body">
+                <ul class="acts-list">
+                  <li><a href="https://youtu.be/r_u9PVq5i7I" target="_blank">에스쿠 (A:SKHU) 비하인드 영상‼️</a></li>
+                  <li><a href="https://youtu.be/djjg1Lip8TE" target="_blank">2019 학생대표자 선거 | '90초 스쿠터뉴스'</a></li>
+                  <li><a href="https://youtu.be/rQnKRunh3gI" target="_blank">에스쿠 (A:SKHU) ep.07 '특별편'</a></li>
+                  <li><a href="https://youtu.be/v7aJVjRGBoM" target="_blank">2020-1 미디어센터 수습국원 모집 영상 | 어이 우리 영상을 봤나 HOXY~~??</a></li>
+                  <li><a href="https://youtu.be/zicZK0yWxI8" target="_blank">[팩트체크] 성공회대 통학로, 과연 안전할까? | 2020 미디어박스</a></li>
+                  <li><a href="https://youtu.be/38CvMayjjH0" target="_blank">2020 성공회대 학생사회가 궁금해!</a></li>
+                  <li><a href="https://youtu.be/WdiFXJSFv8I" target="_blank">온라인개강 &amp; 교내미화노동자 해고ㅣ'90초 스쿠터뉴스'</a></li>
+                  <li><a href="https://youtu.be/LQWJD3BkJdc" target="_blank">😷코로나19로 내 삶이 이렇게 바뀌었다! 😷톡 어바웃 코로나 | '에스쿠 스튜디오'</a></li>
+                  <li><a href="https://youtu.be/SjnsQ734IwQ" target="_blank">교내미화노동자 원직복직 &amp; 진상조사위원회ㅣ'90초 스쿠터뉴스'</a></li>
+                  <li><a href="https://youtu.be/6tQRaaC61BM" target="_blank">📂편집기자가 아껴둔 촬영 비하인드 모음.ZIP 대방출📂 | 2020학년도 1학기 예능 비하인드컷</a></li>
+                  <li><a href="https://youtu.be/EvlMM0nBXzk" target="_blank">진상조사위원회, 소장 교체 결정ㅣ'90초 스쿠터뉴스'</a></li>
+                  <li><a href="https://youtu.be/iH7YFc1abdk" target="_blank">1학기 등록금 반환받을 수 있을까?ㅣ'90초 스쿠터뉴스'</a></li>
+                  <li><a href="https://youtu.be/-g2terAOdvo" target="_blank">2020 성공회대학교 학부대항 온라인 게임대회</a></li>
+                  <li><a href="https://youtu.be/ngSu7_6GTI8" target="_blank">[Teaser] 우당탕탕 방구석 콘서트 티저 | 방구석 콘서트 of SKHU</a></li>
+                  <li><a href="https://youtu.be/bjPm3thF3_c" target="_blank">2020 성공회대학교 학부대항 온라인 게임대회 하이라이트 편집본</a></li>
+                  <li><a href="https://youtu.be/JUX8g-XmlHI" target="_blank">BIS의 [에잇 - 아이유 &amp; 오늘 - 오왠] | 방구석 콘서트 of SKHU</a></li>
+                  <li><a href="https://youtu.be/iwev9YB65HI" target="_blank">행복기숙사 천장에 비가 샌다? 😱 | 스낵뉴스</a></li>
+                  <li><a href="https://youtu.be/RhAxnfBGtPU" target="_blank">매드클라운과 김뜻돌이 성공회대 온라인 축제에?!🙊 | 2020 스쿠대소동 현장 스케치</a></li>
+                  <li><a href="https://youtu.be/QksO9OwOq8I" target="_blank">성공회대 동문을 만나다 - 김뜻돌</a></li>
+                  <li><a href="https://youtu.be/ASIqobyVMBQ" target="_blank">성공회대 동문을 만나다 - 매드클라운</a></li>
+                  <li><a href="https://youtu.be/eUb8hg2tDPA" target="_blank">성공회대 미디어센터 창립 35주년 축하 영상</a></li>
+                  <li><a href="https://youtu.be/PzUbDRhoQaA" target="_blank">들어나 봤나 미디어센터 웹페이지 | 성공회대학교 미디어센터 웹페이지 홍보</a></li>
+                  <li><a href="https://youtu.be/1Ib_S658EIg" target="_blank">총장에게 무엇이든 물어보살</a></li>
+                </ul>
+              </div>
+            </div>
             <a href="https://www.youtube.com/@skhumediacenter" target="_blank" class="acc-link">채널 보기 <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COURSES — 수업 수료 -->
+<section id="courses">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="section-number">06.</span>
+      <h2 class="section-title">수업 수료</h2>
+    </div>
+    <div class="accordion">
+
+      <div class="acc-item" id="crs-claude">
+        <div class="acc-header" onclick="toggle('crs-claude')">
+          <div class="acc-header-left">
+            <span class="acc-tag">수료</span>
+            <span class="acc-title">Claude 101</span>
+          </div>
+          <div class="acc-right">
+            <span class="acc-period">2026.05.14</span>
+            <div class="acc-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-inner">
+            <p class="acc-subhead">경험 간단 설명</p>
+            <ul class="acc-list">
+              <li>클로드 기본 개념을 배웠습니다.</li>
+            </ul>
+            <p class="acc-subhead">주 시도들</p>
+            <ul class="acc-list numbered">
+              <li>api, mcp 연동의 기본적인 틀</li>
+              <li>클로드 코드의 다양한 기능</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item" id="crs-aicon">
+        <div class="acc-header" onclick="toggle('crs-aicon')">
+          <div class="acc-header-left">
+            <span class="acc-tag">컨퍼런스</span>
+            <span class="acc-title">C2C 2025: GAME AICON SEOUL</span>
+          </div>
+          <div class="acc-right">
+            <span class="acc-period">2025.06.03 — 2025.06.04</span>
+            <div class="acc-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-inner">
+            <p class="acc-subhead">경험 간단 설명</p>
+            <ul class="acc-list">
+              <li>'C2C 2025: GAME AICON SEOUL' 컨퍼런스에 참여하여, AI 기술이 게임 산업과 제작 파이프라인에 미치는 변화와 가능성에 대해 학습했습니다.</li>
+            </ul>
+            <p class="acc-subhead">주 시도들</p>
+            <ul class="acc-list numbered">
+              <li>생성형 AI와 게임 제작 프로세스 변화에 대한 강연 청취</li>
+              <li>AI 기술이 배경 제작, 콘텐츠 생산, 개발 파이프라인에 활용되는 사례 학습</li>
+              <li>기술 발전 속에서 창작자의 역할과 방향성에 대해 고민하는 계기 경험</li>
+              <li>AI를 단순 생성 도구가 아닌, 작업 구조와 제작 효율을 설계하는 관점으로 바라보게 된 경험</li>
+            </ul>
+            <a href="https://www.gameaicon.com/" target="_blank" class="acc-link">행사 페이지 보기 <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item" id="crs-mediafuture">
+        <div class="acc-header" onclick="toggle('crs-mediafuture')">
+          <div class="acc-header-left">
+            <span class="acc-tag">컨퍼런스</span>
+            <span class="acc-title">미디어의 미래 컨퍼런스 2023</span>
+          </div>
+          <div class="acc-right">
+            <span class="acc-period">2023.08.24 — 2023.08.25</span>
+            <div class="acc-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-inner">
+            <p class="acc-subhead">경험 간단 설명</p>
+            <ul class="acc-list">
+              <li>'2023 미디어의 미래 컨퍼런스'에 참여하여, AI와 디지털 미디어 기술이 창작 환경과 산업 구조에 어떤 변화를 만들어가고 있는지에 대해 학습했습니다.</li>
+            </ul>
+            <p class="acc-subhead">주 내용들</p>
+            <ul class="acc-list numbered">
+              <li>AI 기술과 미디어 산업의 변화 흐름에 대한 강연 청취</li>
+              <li>생성형 AI와 콘텐츠 제작 방식 변화에 대한 이해</li>
+              <li>기술 발전 속에서 창작자의 역할과 방향성에 대해 고민하는 계기 경험</li>
+              <li>단순한 기술 활용을 넘어, AI를 어떻게 창작 과정에 연결할 수 있을지에 대한 관점 확장</li>
+            </ul>
+            <a href="https://www.mediafuture.kr/event/history/history-2023.html" target="_blank" class="acc-link">행사 페이지 보기 <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item" id="crs-press">
+        <div class="acc-header" onclick="toggle('crs-press')">
+          <div class="acc-header-left">
+            <span class="acc-tag">수료</span>
+            <span class="acc-title">2020 겨울 대학언론강화</span>
+          </div>
+          <div class="acc-right">
+            <span class="acc-period">2022.01.17 — 2022.01.21</span>
+            <div class="acc-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-inner">
+            <p class="acc-subhead">경험 간단 설명</p>
+            <ul class="acc-list">
+              <li>'2022 겨울 대학언론강좌'에 참여하여, 미디어와 사회 이슈를 바라보는 다양한 관점과 커뮤니케이션 방식에 대해 학습했습니다.</li>
+            </ul>
+            <p class="acc-subhead">주 내용들</p>
+            <ul class="acc-list numbered">
+              <li>민주언론시민연합에서 진행하는 2020 겨울 대학언론강화 과정을 수료했습니다.</li>
+              <li>취재방법, 취재일지 작성법, 인터뷰, 레이아웃과 편집 등 전 과정을 수료했습니다.</li>
+            </ul>
+            <a href="https://www.ccdm.or.kr/notice/307618" target="_blank" class="acc-link">과정 안내 보기 <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item" id="crs-guroit">
+        <div class="acc-header" onclick="toggle('crs-guroit')">
+          <div class="acc-header-left">
+            <span class="acc-tag">교육</span>
+            <span class="acc-title">미디어 관련 IT전문가 양성</span>
+          </div>
+          <div class="acc-right">
+            <span class="acc-period">2021.10.01 — 2021.12.22</span>
+            <div class="acc-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-inner">
+            <p class="acc-subhead">경험 간단 설명</p>
+            <ul class="acc-list">
+              <li>구로구청에서 진행한 '미디어 관련 IT전문가 양성 사업' 교육 과정에 참여하여, 모션그래픽 및 영상 편집 기반의 디자인 실무를 학습했습니다.</li>
+            </ul>
+            <p class="acc-subhead">주 내용들</p>
+            <ul class="acc-list numbered">
+              <li>모션그래픽 및 영상 편집 툴의 기초 활용 학습</li>
+              <li>시각적 전달력과 정보 구성 방식에 대한 이해</li>
+              <li>디자인 작업 과정에서 영상과 그래픽의 흐름을 고려하는 시각 경험</li>
+              <li>다양한 디지털 콘텐츠 제작 과정을 경험하며, 시각 표현 영역에 대한 관심 확장</li>
+            </ul>
+            <a href="https://www.guro.go.kr/www/selectBbsNttView.do?bbsNo=662&amp;nttNo=108370&amp;&amp;pageUnit=10&amp;searchCnd=CN&amp;searchKrwd=%EC%B7%A8%EC%97%85&amp;key=1790&amp;pageIndex=17" target="_blank" class="acc-link">사업 공고 보기 <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item" id="crs-guroyouth">
+        <div class="acc-header" onclick="toggle('crs-guroyouth')">
+          <div class="acc-header-left">
+            <span class="acc-tag">체험</span>
+            <span class="acc-title">2019 구로구 청년 중소기업 체험</span>
+          </div>
+          <div class="acc-right">
+            <span class="acc-period">2019.06.24 — 2019.06.26</span>
+            <div class="acc-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-inner">
+            <p class="acc-subhead">경험 간단 설명</p>
+            <ul class="acc-list">
+              <li>구로구에서 진행한 '청년 중소기업 탐방 체험' 프로그램에 참여하여, 다양한 산업 현장과 기업 문화를 경험하고 취업 및 진로에 대한 시야를 넓힐 수 있었습니다.</li>
+            </ul>
+            <p class="acc-subhead">주 시도들</p>
+            <ul class="acc-list numbered">
+              <li>기업 탐방과 현직자 특강을 통해 실제 산업 현장의 업무 방식과 직무 환경을 이해하고자 했습니다.</li>
+              <li>취업 전략 및 청년 고용 정책 관련 프로그램에 참여하며, 진로 방향성과 사회 진출 과정에 대해 고민하는 계기를 가졌습니다.</li>
+              <li>다양한 사람들과의 활동 및 커뮤니케이션을 통해 협업과 사회적 소통의 중요성을 경험했습니다.</li>
+            </ul>
+            <a href="https://www.guro.go.kr/bbs/selectBbsNttView.do?bbsNo=662&amp;nttNo=57044&amp;&amp;pageUnit=10&amp;key=3477&amp;pageIndex=618" target="_blank" class="acc-link">사업 공고 보기 <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
           </div>
         </div>
       </div>
@@ -943,7 +1178,7 @@ footer {
 <section id="intro">
   <div class="wrap">
     <div class="section-header">
-      <span class="section-number">06.</span>
+      <span class="section-number">07.</span>
       <h2 class="section-title">자기소개서</h2>
     </div>
     <div class="intro-stack">
@@ -1019,6 +1254,13 @@ function toggle(id) {
 function toggleIntro(id) {
   const el = document.getElementById(id);
   el.classList.toggle('open');
+}
+/* 중첩 토글(활동 모음) — 열리면 부모 아코디언에 acts-open 을 달아 높이를 확보한다 */
+function toggleActs(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+  const item = el.closest('.acc-item');
+  if (item) item.classList.toggle('acts-open', el.classList.contains('open'));
 }
 
 /* ===== 프로젝트 상세 모달 ===== */
