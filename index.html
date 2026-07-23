@@ -182,7 +182,7 @@ section { padding: 3.5rem 0; }
 /* ===== TWO-COL ===== */
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
 .info-block { margin-bottom: 1.5rem; }
-.info-block .lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); margin-bottom: 0.4rem; }
+.info-block .lbl { font-size: 14px; font-weight: 700; letter-spacing: 0.04em; color: var(--accent); margin-bottom: 0.5rem; }
 .info-block .val { font-size: 14px; line-height: 1.7; }
 .cert { padding: 0.45rem 0; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--ink-soft); }
 .cert:last-child { border: none; }
@@ -274,7 +274,8 @@ section { padding: 3.5rem 0; }
   display: flex; align-items: center; justify-content: space-between;
   padding: 1rem 1.25rem; cursor: pointer; user-select: none;
 }
-.intro-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); }
+/* 경험 섹션의 .acc-title 과 동일한 폰트/색/크기로 통일 */
+.intro-label { font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--ink); }
 .intro-arrow { width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; transition: transform .25s; }
 .intro-arrow svg { width: 14px; height: 14px; stroke: var(--ink-muted); fill: none; stroke-width: 1.5; }
 .intro-card.open .intro-arrow { transform: rotate(180deg); }
