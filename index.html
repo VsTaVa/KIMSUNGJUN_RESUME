@@ -290,7 +290,8 @@ section { padding: 3.5rem 0; }
 
 /* ===== PORTFOLIO GALLERY ===== */
 .portfolio-intro { font-size: 13px; color: var(--ink-soft); margin-bottom: 1.75rem; max-width: 640px; line-height: 1.8; }
-.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+/* 한 줄에 3장 고정 — auto-fill + minmax(300px) 는 900px 컨텐츠 폭에서 2장까지만 들어감 */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
 .art-card {
   background: var(--paper-warm); border: 1px solid var(--line);
   padding: 0.55rem; border-radius: 2px; cursor: pointer;
@@ -384,7 +385,12 @@ footer {
   .nav-links a { display: inline; padding: 0; font-size: 12px; letter-spacing: 0.08em; }
 }
 
+@media (max-width: 860px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 680px) {
+  .gallery { grid-template-columns: 1fr; }
   .banner { min-height: 320px; }
   .hero { grid-template-columns: 1fr; }
   .hero-left { padding: 2.5rem; flex-direction: row; gap: 1.25rem; justify-content: flex-start; align-items: center; }
@@ -746,7 +752,7 @@ footer {
       <span class="section-number">04.</span>
       <h2 class="section-title">포트폴리오</h2>
     </div>
-    <p class="portfolio-intro">3D 모델링 · 환경 작업물. 카드를 클릭하면 상세 페이지(여러 이미지 + 설명)가 중앙에 열립니다.</p>
+    <p class="portfolio-intro">카드를 클릭하면 상세 페이지(이미지+설명)가 중앙에 열립니다.</p>
     <div class="gallery">
 
       <!-- 프로젝트 카드: 클릭 → openProject(id) 로 상세 모달. 데이터는 하단 <script>의 projects 객체에서 관리.
