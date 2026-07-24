@@ -11,12 +11,12 @@
   --ink: #1c1c1c;
   --ink-soft: #4a4038;
   --ink-muted: #7a6d58;
-  --paper: #f5eddc;
-  --paper-warm: #efe4cd;
-  --paper-dark: #e6d8bc;
+  --paper: #f8f4ea;
+  --paper-warm: #f1ebdd;
+  --paper-dark: #e8e0cd;
   --accent: #722f37;
   --accent-pale: #f0dfe1;
-  --line: #ddceb3;
+  --line: #e3ddce;
   --desk: #241a18;        /* 시트 바깥 배경 (책상) */
   --sheet-w: 1200px;      /* 종이 폭 — 레일 148px 포함 */
   --serif: 'Playfair Display', serif;
@@ -39,13 +39,6 @@ a { color: inherit; text-decoration: none; }
   padding-right: 148px;          /* 오른쪽 레일 자리 */
   background: var(--paper);
   box-shadow: 0 0 80px rgba(0,0,0,0.55);
-}
-/* 빈티지 종이 결 — 시트 안쪽에만 적용 */
-.sheet::before {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 260px 260px;
-  opacity: 0.32; mix-blend-mode: multiply;
 }
 /* 가장자리 음영 */
 .sheet::after {
