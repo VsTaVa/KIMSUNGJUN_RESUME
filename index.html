@@ -40,15 +40,6 @@ a { color: inherit; text-decoration: none; }
   background: var(--paper);
   box-shadow: 0 0 80px rgba(0,0,0,0.55);
 }
-/* 가장자리 음영 */
-.sheet::after {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  background:
-    radial-gradient(120% 80% at 50% 0%, transparent 55%, rgba(60,30,35,0.10) 100%),
-    radial-gradient(110% 90% at 20% 100%, rgba(74,45,50,0.08), transparent 60%);
-  mix-blend-mode: multiply;
-}
-
 /* ===== NAV — 오른쪽 세로 레일 (full-height, 가로 텍스트) ===== */
 nav {
   /* 시트 오른쪽 가장자리에 붙인다 — 시트 중앙 정렬을 따라감 */
