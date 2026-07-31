@@ -142,14 +142,13 @@ a.chip.chip-primary:hover { background: #8a3a43; border-color: #8a3a43; color: #
 
 /* ===== LAYOUT ===== */
 .wrap { max-width: 980px; margin: 0 auto; padding: 0 2.5rem; }
-/* 한 화면에 한 섹션(카드)만 — 뷰포트 높이만큼 잡고 카드를 수직 중앙에 두고 스냅 */
+/* 한 카드가 중앙에 스냅되고, 위아래 이웃 카드가 화면 가장자리에 희미하게 걸친다.
+   섹션 높이를 콘텐츠+여백 기준으로 잡아(100vh 강제 X) 이웃이 밀려나지 않게 함 */
 .hero-wrap, section {
-  min-height: 100vh;
   display: flex; flex-direction: column; justify-content: center;
   scroll-snap-align: center;
-  padding: 4rem 0;
+  padding: 7vh 0;
 }
-.hero-wrap { padding: 4rem 0; }
 /* 각 섹션을 빈티지 종이 카드로 — 시트(살짝 어두운 종이) 위에 밝은 종이 한 장씩 얹힌 형태 */
 section > .wrap {
   max-width: 940px;
