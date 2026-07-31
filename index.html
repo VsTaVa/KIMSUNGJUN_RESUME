@@ -65,16 +65,37 @@ nav {
 }
 .nav-links a:hover { color: var(--accent); background: rgba(114,47,55,0.06); }
 
-/* ===== HERO — 카드 없이 깔끔한 헤더 (시트 위 레터헤드) ===== */
+/* ===== HERO — 빈티지 마스트헤드 (로고 + 각인 타이틀 + 사진) ===== */
 .wrap.hero-wrap { max-width: var(--card-w); }
-.hero {
-  display: grid; grid-template-columns: 190px 1fr;
-  gap: 3rem; align-items: center;
-  padding-bottom: 2.75rem;
-  border-bottom: 1px solid var(--line);
+.masthead { text-align: center; }
+.mast-logo { display: block; width: 118px; height: auto; margin: 0 auto 0.4rem; }
+.mast-titlebar {
+  position: relative;
+  border-top: 1px solid var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding: 0.7rem 2.5rem;
+  margin-bottom: 7px;
 }
-.hero-left { display: flex; flex-direction: column; align-items: flex-start; gap: 0.85rem; }
-/* 사진 — 얇은 흰 매트 액자만, 깔끔하게 */
+/* 타이틀 아래 짧은 이중선 */
+.mast-titlebar::after {
+  content: ''; position: absolute; left: 50%; transform: translateX(-50%);
+  bottom: -7px; width: 60%; height: 1px; background: var(--accent); opacity: 0.5;
+}
+.mast-birth {
+  position: absolute; left: 0; bottom: -2px;
+  font-family: var(--script); font-size: 20px; color: var(--ink-muted);
+}
+.mast-title {
+  font-family: var(--serif); font-weight: 700; text-transform: uppercase;
+  font-size: 33px; letter-spacing: 0.04em; line-height: 1.15; color: var(--accent);
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.65), -1px -1px 0 rgba(0,0,0,0.22);
+}
+.mast-title span { font-weight: 400; opacity: 0.55; margin: 0 0.3em; }
+/* 본문: 사진 + 정보 */
+.hero-body {
+  display: grid; grid-template-columns: 188px 1fr; gap: 2.5rem;
+  align-items: center; text-align: left; margin-top: 2.4rem;
+}
 .avatar-frame {
   width: 100%; padding: 6px; margin: 0;
   background: #fff; border: 1px solid var(--line);
@@ -84,16 +105,9 @@ nav {
   display: block; width: 100%; aspect-ratio: 3 / 4;
   object-fit: cover; object-position: center 12%;
 }
-.hero-birth { font-size: 11px; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; }
-.hero-right { display: flex; flex-direction: column; }
-.hero-label { font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.9rem; }
-.hero-name {
-  font-family: var(--serif); font-size: 56px; font-weight: 600; line-height: 1; margin: 0;
-  color: var(--accent); letter-spacing: 0.01em;
-}
-.hero-rule { width: 48px; height: 2px; background: var(--accent); opacity: 0.5; margin: 1.2rem 0; }
-.hero-role { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--ink-soft); margin: 0 0 1.1rem; }
-.hero-desc { font-size: 13.5px; color: var(--ink-soft); max-width: 440px; line-height: 1.85; margin: 0 0 1.5rem; }
+.hero-info { display: flex; flex-direction: column; }
+.hero-role { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--ink-soft); margin: 0 0 1rem; }
+.hero-desc { font-size: 13.5px; color: var(--ink-soft); max-width: 460px; line-height: 1.85; margin: 0 0 1.4rem; }
 .contact-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .chip {
   font-size: 11px; color: var(--ink-soft);
@@ -418,12 +432,11 @@ footer {
 
 @media (max-width: 680px) {
   .gallery { grid-template-columns: 1fr; }
-  .hero { grid-template-columns: 1fr; }
-  .hero-left { padding: 2.5rem; flex-direction: row; gap: 1.25rem; justify-content: flex-start; align-items: center; }
-  .avatar-frame { width: 104px; margin-bottom: 0; }
-  .hero-birth { padding-top: 0; border-top: 0; }
-  .hero-right { padding: 2rem 1.5rem; }
-  .hero-name { font-size: 32px; }
+  .mast-title { font-size: 22px; }
+  .mast-birth { position: static; display: block; margin-bottom: 0.4rem; }
+  .mast-titlebar { padding: 0.7rem 0; }
+  .hero-body { grid-template-columns: 1fr; gap: 1.5rem; }
+  .avatar-frame { width: 150px; margin: 0 auto; }
   .two-col { grid-template-columns: 1fr; gap: 2rem; }
   nav { padding: 0.75rem 1.25rem; }
   .nav-links { gap: 1rem; }
@@ -451,32 +464,33 @@ footer {
 
 <div class="sheet">
 
-<!-- HERO -->
+<!-- HERO — 빈티지 마스트헤드 -->
 <div class="wrap hero-wrap">
-<div class="hero" id="about">
-  <div class="hero-left">
-    <div class="avatar-frame">
-      <img src="assets/profile.jpg" alt="김성준 프로필 사진"><!-- 사진 교체 -->
+  <header class="masthead" id="about">
+    <img class="mast-logo" src="assets/vstava-logo.png" alt="VS TA VA"><!-- 로고 -->
+    <div class="mast-titlebar">
+      <span class="mast-birth">2000.10.24 –</span><!-- 생년월일 -->
+      <h1 class="mast-title">KIM SUNG JUN <span>|</span> 3D MODELLER RESUME</h1><!-- 타이틀 -->
     </div>
-    <span class="hero-birth">B. 2000.10.24</span><!-- 생년월일 수정 -->
-  </div>
-  <div class="hero-right">
-    <p class="hero-label">Portfolio</p>
-    <h1 class="hero-name">김성준</h1><!-- 이름 수정 -->
-    <div class="hero-rule"></div>
-    <p class="hero-role">3D Environment Artist · AI Pipeline</p><!-- 직함 수정 -->
-    <p class="hero-desc">
-      홀로 빛나는 아티스트를 넘어서,<br><!-- 소개 수정 -->
-      팀과 함께 성장하며 시너지를 내는 3D 배경 아티스트입니다.
-    </p>
-    <div class="contact-chips">
-      <span class="chip">010-2120-8304</span><!-- 연락처 수정 -->
-      <span class="chip">ksb3804k@naver.com</span><!-- 이메일 수정 -->
-      <span class="chip">경기도 화성시</span><!-- 주소 수정 -->
-      <!-- SNS 링크는 페이지 하단 footer 로 이동 -->
+    <div class="hero-body">
+      <div class="avatar-frame">
+        <img src="assets/profile.jpg" alt="김성준 프로필 사진"><!-- 사진 교체 -->
+      </div>
+      <div class="hero-info">
+        <p class="hero-role">3D Environment Artist · AI Pipeline</p><!-- 직함 수정 -->
+        <p class="hero-desc">
+          홀로 빛나는 아티스트를 넘어서,<br><!-- 소개 수정 -->
+          팀과 함께 성장하며 시너지를 내는 3D 배경 아티스트입니다.
+        </p>
+        <div class="contact-chips">
+          <span class="chip">010-2120-8304</span><!-- 연락처 수정 -->
+          <span class="chip">ksb3804k@naver.com</span><!-- 이메일 수정 -->
+          <span class="chip">경기도 화성시</span><!-- 주소 수정 -->
+          <!-- SNS 링크는 페이지 하단 footer 로 이동 -->
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </header>
 </div>
 
 <!-- EDUCATION -->
