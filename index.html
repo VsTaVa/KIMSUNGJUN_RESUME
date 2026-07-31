@@ -19,6 +19,7 @@
   --line: #e3ddce;
   --desk: #241a18;        /* 시트 바깥 배경 (책상) */
   --sheet-w: 1200px;      /* 종이 폭 — 레일 148px 포함 */
+  --card-w: 940px;        /* 모든 섹션 카드 공통 폭 */
   --serif: 'Playfair Display', serif;
   --sans: 'Noto Sans KR', sans-serif;
   --script: 'Dancing Script', cursive;
@@ -26,7 +27,7 @@
 
 /* ===== RESET ===== */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; scroll-snap-type: y proximity; }
+html { scroll-behavior: smooth; }
 body { font-family: var(--sans); background: var(--desk); color: var(--ink); font-size:14px; line-height:1.75; position: relative; }
 a { color: inherit; text-decoration: none; }
 
@@ -48,8 +49,7 @@ nav {
   left: 50%; margin-left: calc(var(--sheet-w) / 2 - 148px);
   display: flex; flex-direction: column; align-items: center; gap: 1.2rem;
   padding: 2.4rem 1rem;
-  background: rgba(245,237,220,0.85);
-  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  background: var(--paper-warm); /* 불투명 — blur 제거로 스크롤 버벅임 해소 */
   border-left: 3px double var(--accent);
 }
 .nav-logo-link { width: 100%; display: block; }
@@ -66,8 +66,8 @@ nav {
 .nav-links a:hover { color: var(--accent); background: rgba(114,47,55,0.06); }
 
 /* ===== HERO — 와인 커버 카드 (다른 섹션 카드와 동일 폭) ===== */
-/* .wrap(980) 보다 특정도를 높여 확실히 940 로 고정 */
-.wrap.hero-wrap { max-width: 940px; }
+/* .wrap(980) 보다 특정도를 높여 확실히 카드 폭으로 고정 */
+.wrap.hero-wrap { max-width: var(--card-w); }
 .hero {
   position: relative;
   display: grid; grid-template-columns: 300px 1fr;
@@ -144,7 +144,6 @@ a.chip.chip-primary:hover { background: #8a3a43; border-color: #8a3a43; color: #
   opacity: 0.28;
   transform: translateY(34px);
   transition: opacity .5s ease, transform .6s cubic-bezier(.22,.61,.36,1);
-  will-change: opacity, transform;
 }
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
@@ -153,16 +152,14 @@ a.chip.chip-primary:hover { background: #8a3a43; border-color: #8a3a43; color: #
 
 /* ===== LAYOUT ===== */
 .wrap { max-width: 980px; margin: 0 auto; padding: 0 2.5rem; }
-/* 한 카드가 중앙에 스냅되고, 위아래 이웃 카드가 화면 가장자리에 희미하게 걸친다.
-   섹션 높이를 콘텐츠+여백 기준으로 잡아(100vh 강제 X) 이웃이 밀려나지 않게 함 */
+/* 섹션 간 간격 (스냅 제거 — 자연스러운 자유 스크롤, reveal 로만 등장 연출) */
 .hero-wrap, section {
   display: flex; flex-direction: column; justify-content: center;
-  scroll-snap-align: center;
-  padding: 7vh 0;
+  padding: 5.5vh 0;
 }
 /* 각 섹션을 빈티지 종이 카드로 — 시트(살짝 어두운 종이) 위에 밝은 종이 한 장씩 얹힌 형태 */
 section > .wrap {
-  max-width: 940px;
+  max-width: var(--card-w);
   margin: 0 auto;
   padding: 2.8rem 3rem;
   background: var(--paper);
