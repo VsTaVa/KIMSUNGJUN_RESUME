@@ -152,13 +152,11 @@ a.chip.chip-primary:hover { background: #8a3a43; border-color: #8a3a43; color: #
 
 /* ===== LAYOUT ===== */
 .wrap { max-width: 980px; margin: 0 auto; padding: 0 2.5rem; }
-/* 섹션 간 간격 (스냅 제거 — 자연스러운 자유 스크롤, reveal 로만 등장 연출) */
-.hero-wrap, section {
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 5.5vh 0;
-}
-/* 각 섹션을 빈티지 종이 카드로 — 시트(살짝 어두운 종이) 위에 밝은 종이 한 장씩 얹힌 형태 */
+/* 섹션 간 간격 (블록 레이아웃 — flex 의 auto 마진이 카드를 내용폭으로 줄이던 문제 제거) */
+.hero-wrap, section { padding: 5.5vh 0; }
+/* 각 섹션을 빈티지 종이 카드로 — 폭을 카드 공통폭으로 강제해 전 섹션 동일하게 */
 section > .wrap {
+  width: 100%;
   max-width: var(--card-w);
   margin: 0 auto;
   padding: 2.8rem 3rem;
