@@ -120,6 +120,13 @@ a.chip:hover { color: var(--accent); border-color: var(--accent); background: va
 a.chip.chip-primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 500; }
 a.chip.chip-primary:hover { background: #8a3a43; border-color: #8a3a43; color: #fff; }
 
+/* ===== 스크롤 진입 애니메이션 (JS가 .reveal 을 달아준다 — 미실행 시 그냥 보임) ===== */
+.reveal { opacity: 0; transform: translateY(38px); transition: opacity .7s ease, transform .7s cubic-bezier(.22,.61,.36,1); will-change: opacity, transform; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
 /* ===== LAYOUT ===== */
 .wrap { max-width: 980px; margin: 0 auto; padding: 0 2.5rem; }
 /* 히어로도 같은 칼럼 안에 둬서 아래 섹션들과 좌측선을 맞춘다 */
@@ -1258,6 +1265,20 @@ footer {
 </div><!-- /.sheet -->
 
 <script>
+/* ===== 스크롤 진입 애니메이션 ===== */
+(function () {
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const targets = document.querySelectorAll('.hero-wrap, section');
+  if (reduce || !('IntersectionObserver' in window)) return; // 미지원/감속선호 시 그냥 보임
+  targets.forEach(el => el.classList.add('reveal'));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  targets.forEach(el => io.observe(el));
+})();
+
 function toggle(id) {
   const el = document.getElementById(id);
   el.classList.toggle('open');
