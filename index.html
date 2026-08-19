@@ -1294,9 +1294,12 @@ footer {
   const targets = document.querySelectorAll('.hero-wrap, section > .wrap');
   if (reduce || !('IntersectionObserver' in window)) return; // 미지원/감속선호 시 그냥 보임
   targets.forEach(el => el.classList.add('reveal'));
+  // 한 번 나타나면 고정(unobserve) — 이동 때문에 밴드를 들락거리며 떨리는 피드백 루프 방지
   const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => e.target.classList.toggle('in', e.isIntersecting));
-  }, { threshold: 0, rootMargin: '-25% 0px -25% 0px' }); // 뷰포트 중앙 넓은 밴드 — 중앙부에 오면 선명
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
   targets.forEach(el => io.observe(el));
 })();
 
