@@ -344,6 +344,134 @@
     </div>
   </section>
 
+  <!-- EDUCATION & TRAINING (수업 수료) -->
+  <section id="training" style="padding:5rem 3.5rem;max-width:1400px;margin:0 auto;border-top:1px solid #221f1c;">
+    <h2 style="font-family: 'Bebas Neue',sans-serif; font-size: 40px; letter-spacing: 0.02em; margin: 0 0 2.5rem; color: #D9821C">EDUCATION &amp; TRAINING</h2>
+    <div style="display:flex;flex-direction:column;">
+
+      <div style="border-bottom:1px solid #221f1c;">
+        <div onclick="{{ toggleCrsClaude }}" style="display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1rem;margin:0 -1rem;border-radius:4px;cursor:pointer;user-select:none;transition:background 0.2s ease;" style-hover="background:#2a251d;">
+          <div style="display:flex;align-items:baseline;gap:1.25rem;"><span style="font-size: 11px; color: #d9a441; letter-spacing: 0.08em; width: 80px; font-weight: 500">수료</span><span style="font-size: 15px; color: #FFFFFF">Claude 101</span></div>
+          <div style="display:flex;align-items:center;gap:1.5rem;"><span style="font-size:11px;color:#8a8377;">2026.05.14</span><span style="color:#8a8377;">{{ crsClaudeIcon }}</span></div>
+        </div>
+        <sc-if value="{{ crsClaudeOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width:760px;">
+            <p style="font-size:12px;color:#d9a441;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">경험 간단 설명</p>
+            <p style="font-size:13px;color:#FFFFFF;line-height:1.85;margin:0 0 1.25rem;">클로드 기본 개념을 배웠습니다.</p>
+            <p style="font-size:12px;color:#d9a441;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">주 시도들</p>
+            <ul style="padding-left:0;list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin:0;">
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">1.</span>api, mcp 연동의 기본적인 틀</li>
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">2.</span>클로드 코드의 다양한 기능</li>
+            </ul>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="border-bottom:1px solid #221f1c;">
+        <div onclick="{{ toggleCrsAicon }}" style="display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1rem;margin:0 -1rem;border-radius:4px;cursor:pointer;user-select:none;transition:background 0.2s ease;" style-hover="background:#2a251d;">
+          <div style="display:flex;align-items:baseline;gap:1.25rem;"><span style="font-size: 11px; color: #d9a441; letter-spacing: 0.08em; width: 80px; font-weight: 500">컨퍼런스</span><span style="font-size: 15px; color: #FFFFFF">C2C 2025: GAME AICON SEOUL</span></div>
+          <div style="display:flex;align-items:center;gap:1.5rem;"><span style="font-size:11px;color:#8a8377;">2025.06.03 — 2025.06.04</span><span style="color:#8a8377;">{{ crsAiconIcon }}</span></div>
+        </div>
+        <sc-if value="{{ crsAiconOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width:760px;">
+            <p style="font-size:12px;color:#d9a441;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">경험 간단 설명</p>
+            <p style="font-size:13px;color:#FFFFFF;line-height:1.85;margin:0 0 1.25rem;">'C2C 2025: GAME AICON SEOUL' 컨퍼런스에 참여하여, AI 기술이 게임 산업과 제작 파이프라인에 미치는 변화와 가능성에 대해 학습했습니다.</p>
+            <p style="font-size:12px;color:#d9a441;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">주 시도들</p>
+            <ul style="padding-left:0;list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin:0 0 1.25rem;">
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">1.</span>생성형 AI와 게임 제작 프로세스 변화에 대한 강연 청취</li>
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">2.</span>AI 기술이 배경 제작, 콘텐츠 생산, 개발 파이프라인에 활용되는 사례 학습</li>
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">3.</span>기술 발전 속에서 창작자의 역할과 방향성에 대해 고민하는 계기 경험</li>
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">4.</span>AI를 단순 생성 도구가 아닌, 작업 구조와 제작 효율을 설계하는 관점으로 바라보게 된 경험</li>
+            </ul>
+            <a href="https://www.gameaicon.com/" target="_blank" style="font-size:12px;color:#d9a441;">행사 페이지 보기 →</a>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="border-bottom:1px solid #221f1c;">
+        <div onclick="{{ toggleCrsMedia23 }}" style="display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1rem;margin:0 -1rem;border-radius:4px;cursor:pointer;user-select:none;transition:background 0.2s ease;" style-hover="background:#2a251d;">
+          <div style="display:flex;align-items:baseline;gap:1.25rem;"><span style="font-size: 11px; color: #d9a441; letter-spacing: 0.08em; width: 80px; font-weight: 500">컨퍼런스</span><span style="font-size: 15px; color: #FFFFFF">미디어의 미래 컨퍼런스 2023</span></div>
+          <div style="display:flex;align-items:center;gap:1.5rem;"><span style="font-size:11px;color:#8a8377;">2023.08.24 — 2023.08.25</span><span style="color:#8a8377;">{{ crsMedia23Icon }}</span></div>
+        </div>
+        <sc-if value="{{ crsMedia23Open }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width:760px;">
+            <p style="font-size:12px;color:#d9a441;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">경험 간단 설명</p>
+            <p style="font-size:13px;color:#FFFFFF;line-height:1.85;margin:0 0 1.25rem;">'2023 미디어의 미래 컨퍼런스'에 참여하여, AI와 디지털 미디어 기술이 창작 환경과 산업 구조에 어떤 변화를 만들어가고 있는지에 대해 학습했습니다.</p>
+            <p style="font-size:12px;color:#d9a441;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">주 내용들</p>
+            <ul style="padding-left:0;list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin:0 0 1.25rem;">
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">1.</span>AI 기술과 미디어 산업의 변화 흐름에 대한 강연 청취</li>
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">2.</span>생성형 AI와 콘텐츠 제작 방식 변화에 대한 이해</li>
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">3.</span>기술 발전 속에서 창작자의 역할과 방향성에 대해 고민하는 계기 경험</li>
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">4.</span>단순한 기술 활용을 넘어, AI를 어떻게 창작 과정에 연결할 수 있을지에 대한 관점 확장</li>
+            </ul>
+            <a href="https://www.mediafuture.kr/event/history/history-2023.html" target="_blank" style="font-size:12px;color:#d9a441;">행사 페이지 보기 →</a>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="border-bottom:1px solid #221f1c;">
+        <div onclick="{{ toggleCrsNews }}" style="display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1rem;margin:0 -1rem;border-radius:4px;cursor:pointer;user-select:none;transition:background 0.2s ease;" style-hover="background:#2a251d;">
+          <div style="display:flex;align-items:baseline;gap:1.25rem;"><span style="font-size: 11px; color: #d9a441; letter-spacing: 0.08em; width: 80px; font-weight: 500">수료</span><span style="font-size: 15px; color: #FFFFFF">2022 겨울 대학언론강화</span></div>
+          <div style="display:flex;align-items:center;gap:1.5rem;"><span style="font-size:11px;color:#8a8377;">2022.01.17 — 2022.01.21</span><span style="color:#8a8377;">{{ crsNewsIcon }}</span></div>
+        </div>
+        <sc-if value="{{ crsNewsOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width:760px;">
+            <p style="font-size:12px;color:#d9a441;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">경험 간단 설명</p>
+            <p style="font-size:13px;color:#FFFFFF;line-height:1.85;margin:0 0 1.25rem;">'2022 겨울 대학언론강좌'에 참여하여, 미디어와 사회 이슈를 바라보는 다양한 관점과 커뮤니케이션 방식에 대해 학습했습니다.</p>
+            <p style="font-size:12px;color:#d9a441;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">주 내용들</p>
+            <ul style="padding-left:0;list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin:0 0 1.25rem;">
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">1.</span>민주언론시민연합에서 진행하는 2022 겨울 대학언론강화 과정을 수료했습니다.</li>
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">2.</span>취재방법, 취재일지 작성법, 인터뷰, 레이아웃과 편집 등 전 과정을 수료했습니다.</li>
+            </ul>
+            <a href="https://www.ccdm.or.kr/notice/307618" target="_blank" style="font-size:12px;color:#d9a441;">과정 안내 보기 →</a>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="border-bottom:1px solid #221f1c;">
+        <div onclick="{{ toggleCrsIt }}" style="display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1rem;margin:0 -1rem;border-radius:4px;cursor:pointer;user-select:none;transition:background 0.2s ease;" style-hover="background:#2a251d;">
+          <div style="display:flex;align-items:baseline;gap:1.25rem;"><span style="font-size: 11px; color: #d9a441; letter-spacing: 0.08em; width: 80px; font-weight: 500">교육</span><span style="font-size: 15px; color: #FFFFFF">미디어 관련 IT전문가 양성</span></div>
+          <div style="display:flex;align-items:center;gap:1.5rem;"><span style="font-size:11px;color:#8a8377;">2021.10.01 — 2021.12.22</span><span style="color:#8a8377;">{{ crsItIcon }}</span></div>
+        </div>
+        <sc-if value="{{ crsItOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width:760px;">
+            <p style="font-size:12px;color:#d9a441;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">경험 간단 설명</p>
+            <p style="font-size:13px;color:#FFFFFF;line-height:1.85;margin:0 0 1.25rem;">구로구청에서 진행한 '미디어 관련 IT전문가 양성 사업' 교육 과정에 참여하여, 모션그래픽 및 영상 편집 기반의 디자인 실무를 학습했습니다.</p>
+            <p style="font-size:12px;color:#d9a441;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">주 내용들</p>
+            <ul style="padding-left:0;list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin:0 0 1.25rem;">
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">1.</span>모션그래픽 및 영상 편집 툴의 기초 활용 학습</li>
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">2.</span>시각적 전달력과 정보 구성 방식에 대한 이해</li>
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">3.</span>디자인 작업 과정에서 영상과 그래픽의 흐름을 고려하는 시각 경험</li>
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">4.</span>다양한 디지털 콘텐츠 제작 과정을 경험하며, 시각 표현 영역에 대한 관심 확장</li>
+            </ul>
+            <a href="https://www.guro.go.kr/www/selectBbsNttView.do?bbsNo=662&amp;nttNo=108370&amp;&amp;pageUnit=10&amp;searchCnd=CN&amp;searchKrwd=%EC%B7%A8%EC%97%85&amp;key=1790&amp;pageIndex=17" target="_blank" style="font-size:12px;color:#d9a441;">사업 공고 보기 →</a>
+          </div>
+        </sc-if>
+      </div>
+
+      <div>
+        <div onclick="{{ toggleCrsYouth }}" style="display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1rem;margin:0 -1rem;border-radius:4px;cursor:pointer;user-select:none;transition:background 0.2s ease;" style-hover="background:#2a251d;">
+          <div style="display:flex;align-items:baseline;gap:1.25rem;"><span style="font-size: 11px; color: #d9a441; letter-spacing: 0.08em; width: 80px; font-weight: 500">체험</span><span style="font-size: 15px; color: #FFFFFF">2019 구로구 청년 중소기업 체험</span></div>
+          <div style="display:flex;align-items:center;gap:1.5rem;"><span style="font-size:11px;color:#8a8377;">2019.06.24 — 2019.06.26</span><span style="color:#8a8377;">{{ crsYouthIcon }}</span></div>
+        </div>
+        <sc-if value="{{ crsYouthOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width:760px;">
+            <p style="font-size:12px;color:#d9a441;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">경험 간단 설명</p>
+            <p style="font-size:13px;color:#FFFFFF;line-height:1.85;margin:0 0 1.25rem;">구로구에서 진행한 '청년 중소기업 탐방 체험' 프로그램에 참여하여, 다양한 산업 현장과 기업 문화를 경험하고 취업 및 진로에 대한 시야를 넓힐 수 있었습니다.</p>
+            <p style="font-size:12px;color:#d9a441;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">주 시도들</p>
+            <ul style="padding-left:0;list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin:0 0 1.25rem;">
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">1.</span>기업 탐방과 현직자 특강을 통해 실제 산업 현장의 업무 방식과 직무 환경을 이해하고자 했습니다.</li>
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">2.</span>취업 전략 및 청년 고용 정책 관련 프로그램에 참여하며, 진로 방향성과 사회 진출 과정에 대해 고민하는 계기를 가졌습니다.</li>
+              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">3.</span>다양한 사람들과의 활동 및 커뮤니케이션을 통해 협업과 사회적 소통의 중요성을 경험했습니다.</li>
+            </ul>
+            <a href="https://www.guro.go.kr/bbs/selectBbsNttView.do?bbsNo=662&amp;nttNo=57044&amp;&amp;pageUnit=10&amp;key=3477&amp;pageIndex=618" target="_blank" style="font-size:12px;color:#d9a441;">사업 공고 보기 →</a>
+          </div>
+        </sc-if>
+      </div>
+
+    </div>
+  </section>
+
   <!-- SELF INTRO (full) -->
   <section style="padding:5rem 3.5rem;max-width:1400px;margin:0 auto;border-top:1px solid #221f1c;">
     <h2 style="font-family: 'Bebas Neue',sans-serif; font-size: 40px; letter-spacing: 0.02em; margin: 0 0 2.5rem; color: #D9821C">STATEMENT</h2>
@@ -438,7 +566,7 @@
 
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;heroGradientIntensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.55,&quot;min&quot;:0,&quot;max&quot;:1,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
-const EXP_KEYS = ['expMol','expCaps','expExhibit','expTa','expImom','expCrowd','expMedia'];
+const EXP_KEYS = ['expMol','expCaps','expExhibit','expTa','expImom','expCrowd','expMedia','crsClaude','crsAicon','crsMedia23','crsNews','crsIt','crsYouth'];
 const INTRO_KEYS = ['intro1','intro2','intro3','intro4'];
 
 const PROJECTS = {
