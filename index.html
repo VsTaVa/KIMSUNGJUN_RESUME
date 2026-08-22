@@ -34,8 +34,8 @@
       
 
       <img src="uploads/logo.png" alt="Kim Sung Jun logo" style="height: 109px; width: 193px"><div style="display:flex;gap:1.75rem;">
-        <a href="#work" style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#c9c2b4;">Work</a>
         <a href="#about" style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#c9c2b4;">About</a>
+        <a href="#work" style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#c9c2b4;">Work</a>
         <a href="#experience" style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#c9c2b4;">Experience</a>
         <a href="#contact" style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#c9c2b4;">Contact</a>
       </div>
@@ -46,44 +46,6 @@
       <p style="font-size:16px;color:#c9c2b4;max-width:560px;margin:0;line-height:1.8;">홀로 빛나는 아티스트를 넘어, <br>팀과 함께 성장하며 시너지를 내는 김성준입니다.</p>
     </div>
   </header>
-
-  <!-- WORK / PORTFOLIO -->
-  <section id="work" style="padding:7rem 3.5rem 6rem;max-width:1400px;margin:0 auto;">
-    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem;">
-      <h2 style="font-family: 'Bebas Neue',sans-serif; font-size: 46px; letter-spacing: 0.02em; margin: 0; color: #D9821C">SELECTED WORK</h2>
-      <span style="font-size:12px;color:#8a8377;letter-spacing:0.08em;text-transform:uppercase;">클릭하면 상세 갤러리가 열립니다</span>
-    </div>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
-      <figure onclick="{{ openSagrada }}" tabindex="0" role="button" style="margin:0;cursor:pointer;position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:2px;">
-        <img src="assets/portfolio/sagrada-main.jpg" alt="Sagrada Familia" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;" style-hover="transform:scale(1.05);">
-        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(13,12,11,0.9) 100%);"></div>
-        <div style="position:absolute;left:1.75rem;bottom:1.5rem;right:1.75rem;">
-          <span style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#d9a441;">Unreal Engine 5 · Graduation Work</span>
-          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:34px;color:#f5f1e8;margin:0.4rem 0 0;letter-spacing:0.01em;">SAGRADA FAMILIA</h3>
-        </div>
-      </figure>
-
-      <figure onclick="{{ openIron }}" tabindex="0" role="button" style="margin:0;cursor:pointer;position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:2px;">
-        <img src="assets/portfolio/iron-main.jpg" alt="Iron Maiden" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;" style-hover="transform:scale(1.05);">
-        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(13,12,11,0.9) 100%);"></div>
-        <div style="position:absolute;left:1.75rem;bottom:1.5rem;right:1.75rem;">
-          <span style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#d9a441;">Unreal Engine 5 · Interior Environment</span>
-          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:34px;color:#f5f1e8;margin:0.4rem 0 0;letter-spacing:0.01em;">IRON MAIDEN</h3>
-        </div>
-      </figure>
-    </div>
-
-    <figure onclick="{{ openMol }}" tabindex="0" role="button" style="margin:0;cursor:pointer;position:relative;aspect-ratio:21/8;overflow:hidden;border-radius:2px;">
-      <img src="assets/portfolio/mol-blue-main.jpg" alt="M.O.L." loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;" style-hover="transform:scale(1.05);">
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(13,12,11,0.9) 100%);"></div>
-      <div style="position:absolute;left:1.75rem;bottom:1.5rem;right:1.75rem;">
-        <span style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#d9a441;">Team Project · Unity</span>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:#f5f1e8;margin:0.4rem 0 0.6rem;letter-spacing:0.01em;">M.O.L.</h3>
-        <p style="font-size:13px;color:#c9c2b4;margin:0;line-height:1.7;">My Observation Log — 4인 팀 프로젝트, 배경 전반 담당</p>
-      </div>
-    </figure>
-  </section>
 
   <!-- PROJECT MODAL -->
   <sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
@@ -174,6 +136,44 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- WORK / PORTFOLIO -->
+  <section id="work" style="padding:7rem 3.5rem 6rem;max-width:1400px;margin:0 auto;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem;">
+      <h2 style="font-family: 'Bebas Neue',sans-serif; font-size: 46px; letter-spacing: 0.02em; margin: 0; color: #D9821C">SELECTED WORK</h2>
+      <span style="font-size:12px;color:#8a8377;letter-spacing:0.08em;text-transform:uppercase;">클릭하면 상세 갤러리가 열립니다</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
+      <figure onclick="{{ openSagrada }}" tabindex="0" role="button" style="margin:0;cursor:pointer;position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:2px;">
+        <img src="assets/portfolio/sagrada-main.jpg" alt="Sagrada Familia" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;" style-hover="transform:scale(1.05);">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(13,12,11,0.9) 100%);"></div>
+        <div style="position:absolute;left:1.75rem;bottom:1.5rem;right:1.75rem;">
+          <span style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#d9a441;">Unreal Engine 5 · Graduation Work</span>
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:34px;color:#f5f1e8;margin:0.4rem 0 0;letter-spacing:0.01em;">SAGRADA FAMILIA</h3>
+        </div>
+      </figure>
+
+      <figure onclick="{{ openIron }}" tabindex="0" role="button" style="margin:0;cursor:pointer;position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:2px;">
+        <img src="assets/portfolio/iron-main.jpg" alt="Iron Maiden" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;" style-hover="transform:scale(1.05);">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(13,12,11,0.9) 100%);"></div>
+        <div style="position:absolute;left:1.75rem;bottom:1.5rem;right:1.75rem;">
+          <span style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#d9a441;">Unreal Engine 5 · Interior Environment</span>
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:34px;color:#f5f1e8;margin:0.4rem 0 0;letter-spacing:0.01em;">IRON MAIDEN</h3>
+        </div>
+      </figure>
+    </div>
+
+    <figure onclick="{{ openMol }}" tabindex="0" role="button" style="margin:0;cursor:pointer;position:relative;aspect-ratio:21/8;overflow:hidden;border-radius:2px;">
+      <img src="assets/portfolio/mol-blue-main.jpg" alt="M.O.L." loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;" style-hover="transform:scale(1.05);">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(13,12,11,0.9) 100%);"></div>
+      <div style="position:absolute;left:1.75rem;bottom:1.5rem;right:1.75rem;">
+        <span style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#d9a441;">Team Project · Unity</span>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:#f5f1e8;margin:0.4rem 0 0.6rem;letter-spacing:0.01em;">M.O.L.</h3>
+        <p style="font-size:13px;color:#c9c2b4;margin:0;line-height:1.7;">My Observation Log — 4인 팀 프로젝트, 배경 전반 담당</p>
+      </div>
+    </figure>
   </section>
 
   <!-- EXPERIENCE (condensed accordion) -->
