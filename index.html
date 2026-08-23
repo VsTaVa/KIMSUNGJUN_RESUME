@@ -235,36 +235,8 @@
 
   <!-- EXPERIENCE (condensed accordion) -->
   <section id="experience" style="padding:5rem 3.5rem;max-width:1400px;margin:0 auto;border-top:1px solid #221f1c;">
-    <h2 style="font-family: 'Bebas Neue',sans-serif; font-size: 40px; letter-spacing: 0.02em; margin: 0 0 2.5rem; color: #D9821C">EXPERIENCE &amp; PROJECTS</h2>
+    <h2 style="font-family: 'Bebas Neue',sans-serif; font-size: 40px; letter-spacing: 0.02em; margin: 0 0 2.5rem; color: #D9821C">EXPERIENCE</h2>
     <div style="display:flex;flex-direction:column;">
-
-      <div style="border-bottom:1px solid #221f1c;">
-        <div onclick="{{ toggleExpMol }}" style="display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1rem;margin:0 -1rem;border-radius:4px;cursor:pointer;user-select:none;transition:background 0.2s ease;" style-hover="background:#2a251d;">
-          <div style="display:flex;align-items:baseline;gap:1.25rem;"><span style="font-size: 11px; color: #d9a441; letter-spacing: 0.08em; width: 80px; font-weight: 500">TEAM</span><span style="font-size: 15px; color: #FFFFFF">M.O.L. — 팀 프로젝트 (3D 배경 전담)</span></div>
-          <div style="display:flex;align-items:center;gap:1.5rem;"><span style="font-size:11px;color:#8a8377;">2025.03 — 2025.06</span><span style="color:#8a8377;">{{ expMolIcon }}</span></div>
-        </div>
-        <sc-if value="{{ expMolOpen }}" hint-placeholder-val="{{ false }}">
-          <div style="max-width:760px;">
-            <p style="font-size:12px;color:#d9a441;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">프로젝트 간단 설명</p>
-            <p style="font-size: 13px; color: #FFFFFF; line-height: 1.85; margin: 0 0 1.25rem;">졸업 후 4인 팀 프로젝트 'M.O.L.(My Observation Log)'를 제작하며 3D 배경 그래픽을 중심으로 다양한 업무를 수행했습니다.</p>
-            <p style="font-size:12px;color:#d9a441;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">주 시도들</p>
-            <ul style="padding-left:0;list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin:0 0 1.25rem;">
-              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">1.</span>3D 제작 및 연출: 배경 모델링, 라이팅, 머티리얼 세팅을 담당하며, 최적화된 텍스처 활용과 연출을 통해 퍼포먼스와 몰입감을 동시에 고려했습니다.</li>
-              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">2.</span>이펙트 및 파티클 작업: 소규모 프로젝트 특성상 이펙트, 파티클까지 맡아 게임 내 시각적 완성도를 높였습니다.</li>
-              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">3.</span>리소스 관리 및 협업 효율화: Visual SVN Server, Notion, 구글 스프레드시트를 활용해 아트 리소스를 정리·관리하며 자료 중복·누락을 방지하고 협업 효율을 개선했습니다. 단순 관리가 아닌 실제 게임 제작에 최적화된 정리 방식을 체득했습니다.</li>
-              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">4.</span>툴 역량: 3ds Max, ZBrush, Substance 3D Painter, Photoshop, Unity Engine을 활용해 제작했습니다.</li>
-            </ul>
-            <p style="font-size:13px;color:#FFFFFF;line-height:1.85;margin:0 0 1.25rem;">이 프로젝트 경험을 통해, 단순 제작 능력뿐 아니라 리소스 관리 역량, 협업 툴 활용 능력, 게임 파이프라인에 대한 이해를 쌓을 수 있었습니다.</p>
-            <p style="font-size:12px;color:#d9a441;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">관련 멤버</p>
-            <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
-              <span style="font-size:11px;background:#1c1a17;border-radius:2px;padding:3px 9px;color:#c9c2b4;">3D 파트 (배경) — 김성준</span>
-              <span style="font-size:11px;background:#1c1a17;border-radius:2px;padding:3px 9px;color:#c9c2b4;">2D 파트 (캐릭터) — 박시현</span>
-              <span style="font-size:11px;background:#1c1a17;border-radius:2px;padding:3px 9px;color:#c9c2b4;">기획 파트 — 장진석</span>
-              <span style="font-size:11px;background:#1c1a17;border-radius:2px;padding:3px 9px;color:#c9c2b4;">프로그래밍 파트 — 은종혁</span>
-            </div>
-          </div>
-        </sc-if>
-      </div>
 
       <div style="border-bottom:1px solid #221f1c;">
         <div onclick="{{ toggleExpCaps }}" style="display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1rem;margin:0 -1rem;border-radius:4px;cursor:pointer;user-select:none;transition:background 0.2s ease;" style-hover="background:#2a251d;">
@@ -327,35 +299,7 @@
         </sc-if>
       </div>
 
-      <div style="border-bottom:1px solid #221f1c;">
-        <div onclick="{{ toggleExpImom }}" style="display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1rem;margin:0 -1rem;border-radius:4px;cursor:pointer;user-select:none;transition:background 0.2s ease;" style-hover="background:#2a251d;">
-          <div style="display:flex;align-items:baseline;gap:1.25rem;"><span style="font-size: 11px; color: #d9a441; letter-spacing: 0.08em; width: 80px; font-weight: 500">인턴</span><span style="font-size: 15px; color: #FFFFFF">아이맘 처방 동화 삽화 제작 (IQ 비타민)</span></div>
-          <div style="display:flex;align-items:center;gap:1.5rem;"><span style="font-size:11px;color:#8a8377;">2021.09 — 2021.12</span><span style="color:#8a8377;">{{ expImomIcon }}</span></div>
-        </div>
-        <sc-if value="{{ expImomOpen }}" hint-placeholder-val="{{ false }}">
-          <div style="max-width:760px;">
-            <p style="font-size:12px;color:#d9a441;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">프로젝트 간단 설명</p>
-            <p style="font-size:13px;color:#FFFFFF;line-height:1.85;margin:0 0 1.25rem;">군 입대 전, 단기간이지만 'IQ 비타민'에서 인턴으로 근무하며, 아이'맘' 처방 동화 제작 프로젝트를 위한 삽화 콘티를 바탕으로 디자인적 다양성을 표현해내는 과제를 수행함으로써 역량 향상 및 강화를 목적으로 하였습니다.</p>
-            <p style="font-size:12px;color:#d9a441;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">주 시도들</p>
-            <ul style="padding-left:0;list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin:0 0 1.25rem;">
-              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">1.</span>원화 자료를 바탕으로 벡터 기반 일러스트 작업을 수행하면서, 색감 조율·형태 단순화·시각적 전달력 등을 고려하는 훈련을 했습니다.</li>
-              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">2.</span>이 경험을 통해 Photoshop 운용 능력과 함께, 제한된 리소스 안에서 효율적으로 결과물을 완성하는 법을 배웠습니다. 또한 실제 출판 과정에 참여하여, 프로젝트 일정 관리와 피드백 반영 과정을 경험한 것도 큰 자산이 되었습니다.</li>
-              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">3.</span>특히 이 과정에서 익힌 색채 감각과 조형 이해력은 이후 3D 작업에서 손맵 텍스처 제작, 아틀라스 정리, 텍스처 수정 등에 강점으로 작용했습니다.</li>
-            </ul>
-            <p style="font-size:12px;color:#d9a441;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">활동 모음</p>
-            <ul style="padding-left:0;list-style:none;display:flex;flex-direction:column;gap:0.4rem;margin:0 0 1.25rem;">
-              <li><a href="https://product.kyobobook.co.kr/detail/S000211395933" target="_blank" style="font-size:12.5px;color:#c9c2b4;">거짓말 물방울이 점점 커져요</a></li>
-              <li><a href="https://product.kyobobook.co.kr/detail/S000211394049" target="_blank" style="font-size:12.5px;color:#c9c2b4;">푸리 손은 개구리 손</a></li>
-              <li><a href="https://product.kyobobook.co.kr/detail/S000211393754" target="_blank" style="font-size:12.5px;color:#c9c2b4;">외로운 생일파티</a></li>
-              <li><a href="https://product.kyobobook.co.kr/detail/S000211390678" target="_blank" style="font-size:12.5px;color:#c9c2b4;">자꾸 혼이 나요</a></li>
-              <li><a href="https://product.kyobobook.co.kr/detail/S000211390636" target="_blank" style="font-size:12.5px;color:#c9c2b4;">달려라 퐁카</a></li>
-            </ul>
-            <a href="https://www.iqvitamin.co.kr/shop_view/?idx=4" target="_blank" style="font-size:12px;color:#d9a441;">출판된 동화책 보기 ↗</a>
-          </div>
-        </sc-if>
-      </div>
-
-      <div style="border-bottom:1px solid #221f1c;">
+      <div>
         <div onclick="{{ toggleExpCrowd }}" style="display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1rem;margin:0 -1rem;border-radius:4px;cursor:pointer;user-select:none;transition:background 0.2s ease;" style-hover="background:#2a251d;">
           <div style="display:flex;align-items:baseline;gap:1.25rem;"><span style="font-size: 11px; color: #d9a441; letter-spacing: 0.08em; width: 80px; font-weight: 500">외주</span><span style="font-size: 15px; color: #FFFFFF">한국디자인진흥원 · OCR 데이터 구축</span></div>
           <div style="display:flex;align-items:center;gap:1.5rem;"><span style="font-size:11px;color:#8a8377;">2021.09 — 2021.12</span><span style="color:#8a8377;">{{ expCrowdIcon }}</span></div>
@@ -376,26 +320,6 @@
           </div>
         </sc-if>
         
-      </div>
-
-      <div>
-        <div onclick="{{ toggleExpMedia }}" style="display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1rem;margin:0 -1rem;border-radius:4px;cursor:pointer;user-select:none;transition:background 0.2s ease;" style-hover="background:#2a251d;">
-          <div style="display:flex;align-items:baseline;gap:1.25rem;"><span style="font-size: 11px; color: #d9a441; letter-spacing: 0.08em; width: 80px; font-weight: 500">교내</span><span style="font-size: 15px; color: #FFFFFF">미디어센터(대학언론, 영상 편집 기자)</span></div>
-          <div style="display:flex;align-items:center;gap:1.5rem;"><span style="font-size:11px;color:#8a8377;">2019.10 — 2021.02</span><span style="color:#8a8377;">{{ expMediaIcon }}</span></div>
-        </div>
-        <sc-if value="{{ expMediaOpen }}" hint-placeholder-val="{{ false }}">
-          <div style="max-width:760px;">
-            <p style="font-size:12px;color:#d9a441;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">경험 간단 설명</p>
-            <p style="font-size:13px;color:#FFFFFF;line-height:1.85;margin:0 0 1.25rem;">대학 시절, 대학 언론 기구에서 영상 편집 기자로 활동하며, 교내 인사, 공무원, 학생, 연예인, 노동자 등을 취재했습니다. 기획부터 촬영, 편집, 팀 협업까지 전 과정에 참여하면서 커뮤니케이션 능력과 콘텐츠 연출 감각을 자연스럽게 키울 수 있었습니다.</p>
-            <p style="font-size:12px;color:#d9a441;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">주 시도들</p>
-            <ul style="padding-left:0;list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin:0 0 1.25rem;">
-              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">1.</span>교내 인사, 공무원, 학생, 연예인, 노동자 등을 취재 및 촬영</li>
-              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">2.</span>Adobe Premiere Pro, Adobe After Effects를 활용한 영상 편집</li>
-              <li style="font-size:13px;color:#FFFFFF;padding-left:1.4rem;position:relative;line-height:1.85;"><span style="position:absolute;left:0;color:#d9a441;font-weight:700;">3.</span>Adobe Photoshop을 활용한 썸네일 제작 및 영상 소스 제작</li>
-            </ul>
-            <a href="https://www.youtube.com/@skhumediacenter" target="_blank" style="font-size:12px;color:#d9a441;">채널 보기 ↗</a>
-          </div>
-        </sc-if>
       </div>
 
     </div>
@@ -623,7 +547,7 @@
 
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;heroGradientIntensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.55,&quot;min&quot;:0,&quot;max&quot;:1,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
-const EXP_KEYS = ['expMol','expCaps','expExhibit','expTa','expImom','expCrowd','expMedia','crsClaude','crsAicon','crsMedia23','crsNews','crsIt','crsYouth'];
+const EXP_KEYS = ['expCaps','expExhibit','expTa','expCrowd','crsClaude','crsAicon','crsMedia23','crsNews','crsIt','crsYouth'];
 const INTRO_KEYS = ['intro1','intro2','intro3','intro4'];
 
 const PROJECTS = {
