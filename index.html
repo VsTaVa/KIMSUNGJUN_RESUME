@@ -27,7 +27,12 @@
   <!-- HERO -->
   <header style="position:relative;height:100vh;min-height:640px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;">
 <sc-for list="{{ heroSlides }}" as="slide" hint-placeholder-count="3">
-      <img src="{{ slide.src }}" alt="{{ slide.alt }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.8) saturate(1.05);transition:opacity 1.4s ease;opacity:{{ slide.opacity }};">
+      <sc-if value="{{ slide.isVideo }}" hint-placeholder-val="{{ false }}">
+        <video src="{{ slide.src }}" autoplay muted loop playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.8) saturate(1.05);transition:opacity 1.4s ease;opacity:{{ slide.opacity }};"></video>
+      </sc-if>
+      <sc-if value="{{ slide.isImage }}" hint-placeholder-val="{{ true }}">
+        <img src="{{ slide.src }}" alt="{{ slide.alt }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.8) saturate(1.05);transition:opacity 1.4s ease;opacity:{{ slide.opacity }};">
+      </sc-if>
     </sc-for>
     <div style="position: absolute; inset: 0; background: {{ heroGradient }}; overflow: visible"></div>
     <nav style="position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:1.75rem 3.5rem;">
@@ -598,7 +603,7 @@ const PROJECTS = {
 function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 
 const HERO_SLIDES = [
-  { src: 'assets/portfolio/sagrada-02.jpg', alt: 'Sagrada Familia background art' },
+  { type: 'video', src: 'assets/hero-sagrada.mp4', alt: 'Sagrada Familia flythrough' },
   { src: 'assets/portfolio/iron-01.jpg', alt: 'Iron Maiden background art' },
   { src: 'assets/portfolio/mol-blue-03.jpg', alt: 'M.O.L. background art' }
 ];
@@ -632,7 +637,7 @@ class Component extends DCLogic {
       vals['toggle' + cap(key)] = () => this.setState(s => ({ [key]: !s[key] }));
     });
 
-    vals.heroSlides = HERO_SLIDES.map((slide, i) => ({ ...slide, opacity: i === this.state.heroIndex ? 1 : 0 }));
+    vals.heroSlides = HERO_SLIDES.map((slide, i) => ({ ...slide, isVideo: slide.type === 'video', isImage: slide.type !== 'video', opacity: i === this.state.heroIndex ? 1 : 0 }));
     const intensity = this.props.heroGradientIntensity ?? 1;
     vals.heroGradient = `linear-gradient(0deg,rgba(13,12,11,${intensity}) 0%,rgba(13,12,11,${(intensity*0.55).toFixed(2)}) 45%,rgba(13,12,11,0) 100%)`;
 
