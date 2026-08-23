@@ -83,6 +83,16 @@
             </sc-if>
           </sc-for>
         </div>
+        <sc-if value="{{ modalHasList }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:2rem;border-top:1px solid #2a2622;padding-top:1.5rem;">
+            <p style="font-size:12px;color:#d9a441;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.9rem;">{{ modalListTitle }}</p>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.55rem;">
+              <sc-for list="{{ modalList }}" as="lk" hint-placeholder-count="3">
+                <li><a href="{{ lk.url }}" target="_blank" rel="noopener" style="font-size:13px;color:#c9c2b4;line-height:1.55;">{{ lk.title }} ↗</a></li>
+              </sc-for>
+            </ul>
+          </div>
+        </sc-if>
       </article>
     </div>
   </sc-if>
@@ -206,7 +216,7 @@
         <img src="assets/portfolio/media-thumb.jpg" alt="미디어센터" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.5s ease;" style-hover="transform:scale(1.05);">
         <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(13,12,11,0.9) 100%);"></div>
         <div style="position:absolute;left:1.75rem;bottom:1.5rem;right:1.75rem;">
-          <span style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#d9a441;">2 · Video Editing</span>
+          <span style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#d9a441;">대학언론 · Video Editing</span>
           <h3 style="font-family:'Bebas Neue',sans-serif;font-size:34px;color:#f5f1e8;margin:0.4rem 0 0;letter-spacing:0.01em;">MEDIA CENTER</h3>
         </div>
       </figure>
@@ -653,7 +663,33 @@ const PROJECTS = {
     meta: "2019.10 – 2021.02 · 대학 언론기구 · 영상 편집 기자",
     desc: "대학 언론기구 미디어센터에서 영상 편집 기자로 활동하며 교내 인사·공무원·학생·연예인·노동자 등을 취재했습니다. 기획부터 촬영, 편집, 팀 협업까지 전 과정에 참여했고, Adobe Premiere Pro·After Effects로 영상을 편집하고 Photoshop으로 썸네일과 영상 소스를 제작했습니다. 이 과정에서 커뮤니케이션 능력과 콘텐츠 연출 감각을 키웠습니다.",
     link: "https://www.youtube.com/@skhumediacenter", linkText: "채널 보기",
-    images: ["media-01","media-02","media-03"]
+    images: ["media-01","media-02","media-03"],
+    listTitle: "활동 영상",
+    list: [
+      {t:"에스쿠 (A:SKHU) 비하인드 영상‼️", u:"https://youtu.be/r_u9PVq5i7I"},
+      {t:"2019 학생대표자 선거 | '90초 스쿠터뉴스'", u:"https://youtu.be/djjg1Lip8TE"},
+      {t:"에스쿠 (A:SKHU) ep.07 '특별편'", u:"https://youtu.be/rQnKRunh3gI"},
+      {t:"2020-1 미디어센터 수습국원 모집 영상 | 어이 우리 영상을 봤나 HOXY~~??", u:"https://youtu.be/v7aJVjRGBoM"},
+      {t:"[팩트체크] 성공회대 통학로, 과연 안전할까? | 2020 미디어박스", u:"https://youtu.be/zicZK0yWxI8"},
+      {t:"2020 성공회대 학생사회가 궁금해!", u:"https://youtu.be/38CvMayjjH0"},
+      {t:"온라인개강 & 교내미화노동자 해고ㅣ'90초 스쿠터뉴스'", u:"https://youtu.be/WdiFXJSFv8I"},
+      {t:"😷코로나19로 내 삶이 이렇게 바뀌었다! 톡 어바웃 코로나 | '에스쿠 스튜디오'", u:"https://youtu.be/LQWJD3BkJdc"},
+      {t:"교내미화노동자 원직복직 & 진상조사위원회ㅣ'90초 스쿠터뉴스'", u:"https://youtu.be/SjnsQ734IwQ"},
+      {t:"📂편집기자가 아껴둔 촬영 비하인드 모음.ZIP 대방출 | 2020학년도 1학기 예능 비하인드컷", u:"https://youtu.be/6tQRaaC61BM"},
+      {t:"진상조사위원회, 소장 교체 결정ㅣ'90초 스쿠터뉴스'", u:"https://youtu.be/EvlMM0nBXzk"},
+      {t:"1학기 등록금 반환받을 수 있을까?ㅣ'90초 스쿠터뉴스'", u:"https://youtu.be/iH7YFc1abdk"},
+      {t:"2020 성공회대학교 학부대항 온라인 게임대회", u:"https://youtu.be/-g2terAOdvo"},
+      {t:"[Teaser] 우당탕탕 방구석 콘서트 티저 | 방구석 콘서트 of SKHU", u:"https://youtu.be/ngSu7_6GTI8"},
+      {t:"2020 성공회대학교 학부대항 온라인 게임대회 하이라이트 편집본", u:"https://youtu.be/bjPm3thF3_c"},
+      {t:"BIS의 [에잇 - 아이유 & 오늘 - 오왠] | 방구석 콘서트 of SKHU", u:"https://youtu.be/JUX8g-XmlHI"},
+      {t:"행복기숙사 천장에 비가 샌다? 😱 | 스낵뉴스", u:"https://youtu.be/iwev9YB65HI"},
+      {t:"매드클라운과 김뜻돌이 성공회대 온라인 축제에?!🙊 | 2020 스쿠대소동 현장 스케치", u:"https://youtu.be/RhAxnfBGtPU"},
+      {t:"성공회대 동문을 만나다 - 김뜻돌", u:"https://youtu.be/QksO9OwOq8I"},
+      {t:"성공회대 동문을 만나다 - 매드클라운", u:"https://youtu.be/ASIqobyVMBQ"},
+      {t:"성공회대 미디어센터 창립 35주년 축하 영상", u:"https://youtu.be/eUb8hg2tDPA"},
+      {t:"들어나 봤나 미디어센터 웹페이지 | 성공회대학교 미디어센터 웹페이지 홍보", u:"https://youtu.be/PzUbDRhoQaA"},
+      {t:"총장에게 무엇이든 물어보살", u:"https://youtu.be/1Ib_S658EIg"}
+    ]
   },
   iqvitamin: {
     title: "아이맘 처방 동화 · IQ 비타민",
@@ -661,7 +697,15 @@ const PROJECTS = {
     desc: "군 입대 전 'IQ 비타민' 인턴으로 아동 심리 기반 도서의 삽화를 제작했습니다. 원화 자료를 바탕으로 벡터 기반 일러스트 작업을 수행하며 색감 조율·형태 단순화·시각적 전달력을 훈련했고, 실제 출판 과정에 참여해 일정 관리와 피드백 반영을 경험했습니다. 이때 익힌 색채·조형 감각은 이후 3D 손맵 텍스처 작업의 강점으로 이어졌습니다.",
     link: "https://www.iqvitamin.co.kr/shop_view/?idx=4", linkText: "출판된 동화책 보기",
     grid: true,
-    images: ["iq-01","iq-02",{img:"iq-03",full:true}]
+    images: ["iq-01","iq-02",{img:"iq-03",full:true}],
+    listTitle: "참여 도서",
+    list: [
+      {t:"거짓말 물방울이 점점 커져요", u:"https://product.kyobobook.co.kr/detail/S000211395933"},
+      {t:"푸리 손은 개구리 손", u:"https://product.kyobobook.co.kr/detail/S000211394049"},
+      {t:"외로운 생일파티", u:"https://product.kyobobook.co.kr/detail/S000211393754"},
+      {t:"자꾸 혼이 나요", u:"https://product.kyobobook.co.kr/detail/S000211390678"},
+      {t:"달려라 퐁카", u:"https://product.kyobobook.co.kr/detail/S000211390636"}
+    ]
   }
 };
 
@@ -720,6 +764,9 @@ class Component extends DCLogic {
       return { isImage: true, isVideo: false, src: 'assets/portfolio/' + item.img + '.jpg', cellStyle: item.full ? 'grid-column:1/-1;' : '' };
     }) : [];
     vals.modalImagesStyle = (p && p.grid) ? 'display:grid;grid-template-columns:1fr 1fr;gap:1rem;' : 'display:flex;flex-direction:column;gap:1rem;';
+    vals.modalHasList = !!(p && p.list && p.list.length);
+    vals.modalListTitle = p && p.listTitle ? p.listTitle : '';
+    vals.modalList = p && p.list ? p.list.map(x => ({ title: x.t, url: x.u })) : [];
 
     return vals;
   }
