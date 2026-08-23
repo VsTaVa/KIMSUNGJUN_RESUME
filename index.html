@@ -19,6 +19,9 @@
   ::-webkit-scrollbar-thumb { background: #3a352d; border-radius: 5px; border: 2px solid #0d0c0b; }
   ::-webkit-scrollbar-thumb:hover { background: #d9a441; }
   html { scrollbar-color: #3a352d #0d0c0b; scrollbar-width: thin; }
+  /* SELECTED WORK 호버 스포트라이트 — 한 카드에 올리면 나머지는 살짝 어둡게 */
+  #work figure { transition: opacity 0.35s ease; }
+  #work:has(figure:hover) figure:not(:hover) { opacity: 0.4; }
 </style>
 </helmet>
 
