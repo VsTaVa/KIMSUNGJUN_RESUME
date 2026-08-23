@@ -71,7 +71,7 @@
             <a href="{{ modalLink2 }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;font-size:12px;color:#d9a441;border-bottom:1px solid #4a3d20;padding-bottom:1px;margin-left:1.5rem;">{{ modalLink2Text }} ↗</a>
           </sc-if>
         </div>
-        <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div style="{{ modalImagesStyle }}">
           <sc-for list="{{ modalImages }}" as="pic" hint-placeholder-count="3">
             <sc-if value="{{ pic.isImage }}" hint-placeholder-val="{{ true }}">
               <img src="{{ pic.src }}" alt="{{ modalTitle }}" loading="lazy" style="width:100%;height:auto;display:block;border:1px solid #2a2622;border-radius:2px;">
@@ -624,7 +624,10 @@ const PROJECTS = {
   synapse: {
     title: "SynapseLog",
     meta: "Personal Project · Web · Vibe Coding",
-    desc: "노션 페이지들의 관계를 자동으로 탐지해 뇌의 신경망처럼 시각화하는 지식 그래프 도구입니다. 흩어진 페이지를 노드로 연결해 한눈에 보여주고, 키워드 검색·포커스 모드·.md 변환 등을 지원합니다. 기획부터 프론트엔드까지 AI 파이프라인(바이브코딩)으로 직접 구축했습니다.",
+    desc: "노트를 마인드맵으로 시각화하는 개인 지식 신경망 도구입니다. 마크다운 문서의 계층 구조(#, ##, ###)를 실시간 분석해 신경망 형태의 그래프로 시각화하고, 노션 API를 연동해 별도 변환 없이 작성한 글이 자동으로 동기화됩니다. 페이지(.md) 단위를 넘어 마크다운 내부 구조까지 분석해 링크를 연결하며, 키워드를 검색하면 관련 노드가 함께 드러나는 탐색 시스템을 갖췄습니다. 팀 프로젝트에서 필요한 소스를 찾는 시간이 아깝다는 문제의식에서 출발해, 기획부터 프론트엔드까지 바이브 코딩으로 직접 구축했습니다.",
+    link: "https://vs-ta-va-synapselog-preset.vercel.app/", linkText: "사이트 열기",
+    link2: "https://github.com/kimsungjunvstava/vs_ta_va_synapselog_preset", linkText2: "GitHub",
+    grid: true,
     images: ["synapse-01","synapse-02","synapse-03","synapse-04"]
   }
 };
@@ -677,6 +680,7 @@ class Component extends DCLogic {
       }
       return { isImage: false, isVideo: true, embedUrl: 'https://www.youtube.com/embed/' + item.video };
     }) : [];
+    vals.modalImagesStyle = (p && p.grid) ? 'display:grid;grid-template-columns:1fr 1fr;gap:1rem;' : 'display:flex;flex-direction:column;gap:1rem;';
 
     return vals;
   }
