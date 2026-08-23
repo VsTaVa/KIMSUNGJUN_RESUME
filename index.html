@@ -22,6 +22,11 @@
   /* SELECTED WORK 호버 스포트라이트 — 한 카드에 올리면 나머지는 살짝 어둡게 */
   #work figure { transition: opacity 0.35s ease; }
   #work:has(figure:hover) figure:not(:hover) { opacity: 0.4; }
+  /* 아코디언 섹션 호버 스포트라이트 — 한 항목에 올리면 나머지는 살짝 어둡게 */
+  #experience > div > div, #training > div > div, #statement > div > div { transition: opacity 0.35s ease; }
+  #experience > div:has(> div:hover) > div:not(:hover),
+  #training > div:has(> div:hover) > div:not(:hover),
+  #statement > div:has(> div:hover) > div:not(:hover) { opacity: 0.4; }
 </style>
 </helmet>
 
@@ -474,7 +479,7 @@
   </section>
 
   <!-- SELF INTRO (full) -->
-  <section style="padding:5rem 3.5rem;max-width:1400px;margin:0 auto;border-top:1px solid #221f1c;">
+  <section id="statement" style="padding:5rem 3.5rem;max-width:1400px;margin:0 auto;border-top:1px solid #221f1c;">
     <h2 style="font-family: 'Bebas Neue',sans-serif; font-size: 40px; letter-spacing: 0.02em; margin: 0 0 2.5rem; color: #D9821C">STATEMENT</h2>
     <div style="display:flex;flex-direction:column;">
 
