@@ -26,13 +26,9 @@
 
   <!-- HERO -->
   <header style="position:relative;height:100vh;min-height:640px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;">
-<sc-for list="{{ heroSlides }}" as="slide" hint-placeholder-count="3">
-      <sc-if value="{{ slide.isVideo }}" hint-placeholder-val="{{ false }}">
-        <video src="{{ slide.src }}" autoplay muted loop playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.8) saturate(1.05);transition:opacity 1.4s ease;opacity:{{ slide.opacity }};"></video>
-      </sc-if>
-      <sc-if value="{{ slide.isImage }}" hint-placeholder-val="{{ true }}">
-        <img src="{{ slide.src }}" alt="{{ slide.alt }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.8) saturate(1.05);transition:opacity 1.4s ease;opacity:{{ slide.opacity }};">
-      </sc-if>
+<video id="hero-video" src="assets/hero-sagrada.mp4" autoplay muted loop playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.8) saturate(1.05);"></video>
+    <sc-for list="{{ heroSlides }}" as="slide" hint-placeholder-count="2">
+      <img src="{{ slide.src }}" alt="{{ slide.alt }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.8) saturate(1.05);transition:opacity 1.4s ease;opacity:{{ slide.opacity }};">
     </sc-for>
     <div style="position: absolute; inset: 0; background: {{ heroGradient }}; overflow: visible"></div>
     <nav style="position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:1.75rem 3.5rem;">
@@ -602,18 +598,19 @@ const PROJECTS = {
 
 function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 
+// 0번은 고정 배경 영상(assets/hero-sagrada.mp4), 이미지들은 그 위에서 회전한다
 const HERO_SLIDES = [
-  { type: 'video', src: 'assets/hero-sagrada.mp4', alt: 'Sagrada Familia flythrough' },
   { src: 'assets/portfolio/iron-01.jpg', alt: 'Iron Maiden background art' },
   { src: 'assets/portfolio/mol-blue-03.jpg', alt: 'M.O.L. background art' }
 ];
+const HERO_TOTAL = HERO_SLIDES.length + 1; // +1 = 영상 차례
 
 class Component extends DCLogic {
   state = { activeProject: null, heroIndex: 0 };
 
   componentDidMount() {
     this._heroTimer = setInterval(() => {
-      this.setState(s => ({ heroIndex: (s.heroIndex + 1) % HERO_SLIDES.length }));
+      this.setState(s => ({ heroIndex: (s.heroIndex + 1) % HERO_TOTAL }));
     }, 4500);
   }
 
@@ -637,7 +634,8 @@ class Component extends DCLogic {
       vals['toggle' + cap(key)] = () => this.setState(s => ({ [key]: !s[key] }));
     });
 
-    vals.heroSlides = HERO_SLIDES.map((slide, i) => ({ ...slide, isVideo: slide.type === 'video', isImage: slide.type !== 'video', opacity: i === this.state.heroIndex ? 1 : 0 }));
+    // heroIndex 0 = 영상 차례(이미지 전부 투명 -> 배경 영상 노출), i+1 = 각 이미지 차례
+    vals.heroSlides = HERO_SLIDES.map((slide, i) => ({ ...slide, opacity: this.state.heroIndex === i + 1 ? 1 : 0 }));
     const intensity = this.props.heroGradientIntensity ?? 1;
     vals.heroGradient = `linear-gradient(0deg,rgba(13,12,11,${intensity}) 0%,rgba(13,12,11,${(intensity*0.55).toFixed(2)}) 45%,rgba(13,12,11,0) 100%)`;
 
@@ -668,6 +666,19 @@ class Component extends DCLogic {
     return vals;
   }
 }
+</script>
+<script>
+/* 배경 영상 자동재생 보강 — support.js 가 영상을 나중에 렌더해도 muted 로 재생 강제 */
+(function () {
+  function playHero() {
+    document.querySelectorAll('video').forEach(function (v) {
+      v.muted = true; v.setAttribute('muted', '');
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+    });
+  }
+  var n = 0, t = setInterval(function () { playHero(); if (++n > 20) clearInterval(t); }, 800);
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) playHero(); });
+})();
 </script>
 </body>
 </html>
