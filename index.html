@@ -201,6 +201,24 @@
           <h3 style="font-family:'Bebas Neue',sans-serif;font-size:34px;color:#f5f1e8;margin:0.4rem 0 0;letter-spacing:0.01em;">SYNAPSELOG</h3>
         </div>
       </figure>
+
+      <figure onclick="{{ openMedia }}" tabindex="0" role="button" style="margin:0;cursor:pointer;position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:2px;">
+        <img src="assets/portfolio/placeholder-16x9.jpg" alt="미디어센터" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.5s ease;" style-hover="transform:scale(1.05);">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(13,12,11,0.9) 100%);"></div>
+        <div style="position:absolute;left:1.75rem;bottom:1.5rem;right:1.75rem;">
+          <span style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#d9a441;">2D · Video Editing</span>
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:34px;color:#f5f1e8;margin:0.4rem 0 0;letter-spacing:0.01em;">MEDIA CENTER</h3>
+        </div>
+      </figure>
+
+      <figure onclick="{{ openIq }}" tabindex="0" role="button" style="margin:0;cursor:pointer;position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:2px;">
+        <img src="assets/portfolio/placeholder-16x9.jpg" alt="아이맘 처방 동화" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.5s ease;" style-hover="transform:scale(1.05);">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(13,12,11,0.9) 100%);"></div>
+        <div style="position:absolute;left:1.75rem;bottom:1.5rem;right:1.75rem;">
+          <span style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#d9a441;">2D · Illustration</span>
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:34px;color:#f5f1e8;margin:0.4rem 0 0;letter-spacing:0.01em;">IQ VITAMIN</h3>
+        </div>
+      </figure>
     </div>
   </section>
 
@@ -351,7 +369,7 @@
 
       <div>
         <div onclick="{{ toggleExpMedia }}" style="display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1rem;margin:0 -1rem;border-radius:4px;cursor:pointer;user-select:none;transition:background 0.2s ease;" style-hover="background:#2a251d;">
-          <div style="display:flex;align-items:baseline;gap:1.25rem;"><span style="font-size: 11px; color: #d9a441; letter-spacing: 0.08em; width: 80px; font-weight: 500">언론</span><span style="font-size: 15px; color: #FFFFFF">미디어센터 영상 편집 기자</span></div>
+          <div style="display:flex;align-items:baseline;gap:1.25rem;"><span style="font-size: 11px; color: #d9a441; letter-spacing: 0.08em; width: 80px; font-weight: 500">언론</span><span style="font-size: 15px; color: #FFFFFF">미디어센터(대학언론, 영상 편집 기자)</span></div>
           <div style="display:flex;align-items:center;gap:1.5rem;"><span style="font-size:11px;color:#8a8377;">2019.10 — 2021.02</span><span style="color:#8a8377;">{{ expMediaIcon }}</span></div>
         </div>
         <sc-if value="{{ expMediaOpen }}" hint-placeholder-val="{{ false }}">
@@ -629,6 +647,20 @@ const PROJECTS = {
     link2: "https://github.com/kimsungjunvstava/vs_ta_va_synapselog_preset", linkText2: "GitHub",
     grid: true,
     images: ["synapse-01","synapse-02","synapse-03","synapse-04"]
+  },
+  media: {
+    title: "미디어센터 · 영상 편집",
+    meta: "2019.10 – 2021.02 · 대학 언론기구 · 영상 편집 기자",
+    desc: "대학 언론기구 미디어센터에서 영상 편집 기자로 활동하며 교내 인사·공무원·학생·연예인·노동자 등을 취재했습니다. 기획부터 촬영, 편집, 팀 협업까지 전 과정에 참여했고, Adobe Premiere Pro·After Effects로 영상을 편집하고 Photoshop으로 썸네일과 영상 소스를 제작했습니다. 이 과정에서 커뮤니케이션 능력과 콘텐츠 연출 감각을 키웠습니다.",
+    link: "https://www.youtube.com/@skhumediacenter", linkText: "채널 보기",
+    images: []
+  },
+  iqvitamin: {
+    title: "아이맘 처방 동화 · IQ 비타민",
+    meta: "2021.09 – 2021.12 · 외주 · 2D 일러스트",
+    desc: "군 입대 전 'IQ 비타민' 인턴으로 아동 심리 기반 도서의 삽화를 제작했습니다. 원화 자료를 바탕으로 벡터 기반 일러스트 작업을 수행하며 색감 조율·형태 단순화·시각적 전달력을 훈련했고, 실제 출판 과정에 참여해 일정 관리와 피드백 반영을 경험했습니다. 이때 익힌 색채·조형 감각은 이후 3D 손맵 텍스처 작업의 강점으로 이어졌습니다.",
+    link: "https://www.iqvitamin.co.kr/shop_view/?idx=4", linkText: "출판된 동화책 보기",
+    images: []
   }
 };
 
@@ -660,6 +692,8 @@ class Component extends DCLogic {
     vals.openIron = () => this.setState({ activeProject: 'iron' });
     vals.openMol = () => this.setState({ activeProject: 'mol' });
     vals.openSynapse = () => this.setState({ activeProject: 'synapse' });
+    vals.openMedia = () => this.setState({ activeProject: 'media' });
+    vals.openIq = () => this.setState({ activeProject: 'iqvitamin' });
     vals.closeProject = () => this.setState({ activeProject: null });
     vals.closeProjectBg = () => this.setState({ activeProject: null });
     vals.stopClick = (e) => e.stopPropagation();
