@@ -27,6 +27,9 @@
   #experience > div:has(> div:hover) > div:not(:hover),
   #training > div:has(> div:hover) > div:not(:hover),
   #statement > div:has(> div:hover) > div:not(:hover) { opacity: 0.4; }
+  /* ArtStation SNS 칩 — 기본은 나머지와 동일한 아웃라인, 호버 시에만 골드 */
+  #contact .sns-art { color: #e8e3da; border: 1px solid #2a2622; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
+  #contact .sns-art:hover { background: #d9a441; color: #0d0c0b; border-color: #d9a441; }
 </style>
 </helmet>
 
@@ -560,7 +563,7 @@
     <h2 style="font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:0.02em;margin:0 0 1.5rem;color:#f5f1e8;">LET'S WORK TOGETHER</h2>
     <p style="font-size:13px;color:#8a8377;margin:0 0 2rem;">ksb3804k@naver.com · 010-2120-8304 · 경기도 화성시</p>
     <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.6rem;margin-bottom:3rem;">
-      <a href="https://www.artstation.com/vis_ta_via" target="_blank" rel="noopener" style="font-size:12px;color:#0d0c0b;border-radius:20px;padding:7px 18px;background:#d9a441;font-weight:500;">ArtStation ↗</a>
+      <a href="https://www.artstation.com/vis_ta_via" target="_blank" rel="noopener" class="sns-art" style="font-size:12px;border-radius:20px;padding:7px 18px;">ArtStation ↗</a>
       <a href="https://www.instagram.com/vs_ta_va" target="_blank" rel="noopener" style="font-size:12px;color:#e8e3da;border:1px solid #2a2622;border-radius:20px;padding:7px 18px;">Instagram ↗</a>
       <a href="https://www.youtube.com/@Vs_ta_va" target="_blank" rel="noopener" style="font-size:12px;color:#e8e3da;border:1px solid #2a2622;border-radius:20px;padding:7px 18px;">YouTube ↗</a>
       <a href="https://www.linkedin.com/in/sungjun-kim-3301a63b8/" target="_blank" rel="noopener" style="font-size:12px;color:#e8e3da;border:1px solid #2a2622;border-radius:20px;padding:7px 18px;">LinkedIn ↗</a>
