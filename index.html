@@ -10,6 +10,7 @@
 <helmet>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
 <style>
+  :root { --profile-w: 280px; }
   body { margin: 0; }
   a { text-decoration: none; color: #d9a441; }
   a:hover { color: #f0c46a; }
@@ -40,6 +41,7 @@
     header > p { right: 1.25rem !important; left: 1.25rem; text-align: right; }
     [style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
     article { padding: 2.5rem 1.25rem 2rem !important; }
+    #about > div > div:first-child { max-width: var(--profile-w); }
     #experience > div > div > div > div:first-child, #training > div > div > div > div:first-child { flex-direction: column; gap: 0.2rem !important; }
   }
 </style>
@@ -111,7 +113,7 @@
 
   <!-- ABOUT / SKILLS -->
   <section id="about" style="padding:5rem 3.5rem;max-width:1400px;margin:0 auto;border-top:1px solid #221f1c;">
-    <div style="display:grid;grid-template-columns:280px 1fr;gap:4rem;">
+    <div style="display:grid;grid-template-columns:var(--profile-w) 1fr;gap:4rem;">
       <div>
         <img src="assets/profile.jpg" alt="김성준" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 12%;border-radius:2px;filter:grayscale(0.15);">
         <div style="margin-top:1.25rem;font-size:12px;color:#8a8377;line-height:1.9;">
