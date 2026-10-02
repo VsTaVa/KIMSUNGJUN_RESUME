@@ -1,4 +1,4 @@
-# assets
+<img width="1920" height="1080" alt="IRON_MAIDEN_김성준_08" src="https://github.com/user-attachments/assets/6e7cb244-cc56-4a4f-a1ac-fed1cb06348e" /># assets
 
 포트폴리오에 들어갈 파일을 여기에 넣고 push 하면 Vercel이 서빙합니다.
 
@@ -8,6 +8,13 @@
 - `models/` — 3D 모델 (`.glb` 권장 — 텍스처까지 한 파일)
 - `profile.jpg` — 히어로 프로필 사진
 - `vstava-logo.png` — 레일 상단 로고
+<img width="1920" height="1080" alt="IRON_MAIDEN_김성준_02" src="https://github.com/user-attachments/assets/6abe28e7-3d55-47cb-b4bc-78b55e0ffa36" />
+<img width="1920" height="1080" alt="IRON_MAIDEN_김성준_03" src="https://github.com/user-attachments/assets/94e31bd6-1b25-4748-90df-a1b2d048b348" />
+<img width="1920" height="1080" alt="IRON_MAIDEN_김성준_04" src="https://github.com/user-attachments/assets/fd7b98b4-1207-4208-945e-b74c1dd581b7" />
+<img width="1920" height="1080" alt="IRON_MAIDEN_김성준_05" src="https://github.com/user-attachments/assets/6cdb3d92-d5a2-4f6e-89e5-f1652f6afafd" />
+<img width="1920" height="1080" alt="IRON_MAIDEN_김성준_06" src="https://github.com/user-attachments/assets/b8c3c946-94d5-461c-a33b-da11e063058e" />
+<img width="1920" height="1080" alt="IRON_MAIDEN_김성준_07" src="https://github.com/user-attachments/assets/237ca60b-d437-4f9f-bbfd-1778676cae3a" />
+<img width="1920" height="1080" alt="IRON_MAIDEN_김성준_08" src="https://github.com/user-attachments/assets/75a2ab8c-e4b1-4229-9c69-167d359dba2c" />
 
 ## 파일 이름 규칙
 
