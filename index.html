@@ -31,6 +31,17 @@
   /* 푸터 SNS 칩(전체) — 기본은 아웃라인, 호버 시에만 골드 */
   #contact .sns-art { color: #e8e3da; border: 1px solid #2a2622; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
   #contact .sns-art:hover { background: #d9a441; color: #0d0c0b; border-color: #d9a441; }
+  /* 세로 화면(모바일) — 인라인 스타일을 덮어야 해서 !important */
+  @media (orientation: portrait) {
+    header nav { padding: 1.25rem !important; flex-wrap: wrap; gap: 0.75rem; }
+    header nav img { width: 120px !important; height: auto !important; }
+    header nav > div { gap: 1rem !important; flex-wrap: wrap; }
+    header > div, section, footer { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+    header > p { right: 1.25rem !important; left: 1.25rem; text-align: right; }
+    [style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+    article { padding: 2.5rem 1.25rem 2rem !important; }
+    #experience > div > div > div > div:first-child, #training > div > div > div > div:first-child { flex-direction: column; gap: 0.2rem !important; }
+  }
 </style>
 </helmet>
 
