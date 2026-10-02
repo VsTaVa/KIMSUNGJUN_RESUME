@@ -1,4 +1,3 @@
-<img width="1920" height="1080" alt="IRON_MAIDEN_김성준_08" src="https://github.com/user-attachments/assets/6e7cb244-cc56-4a4f-a1ac-fed1cb06348e" /># assets
 
 포트폴리오에 들어갈 파일을 여기에 넣고 push 하면 Vercel이 서빙합니다.
 
